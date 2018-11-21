@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D1FE2DF121A5CF2C007D92D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2DF021A5CF2C007D92D5 /* AppDelegate.swift */; };
+		D1FE2DF321A5CF2C007D92D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2DF221A5CF2C007D92D5 /* ViewController.swift */; };
+		D1FE2DF621A5CF2C007D92D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FE2DF421A5CF2C007D92D5 /* Main.storyboard */; };
+		D1FE2DF821A5CF2F007D92D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1FE2DF721A5CF2F007D92D5 /* Assets.xcassets */; };
+		D1FE2DFB21A5CF2F007D92D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FE2DF921A5CF2F007D92D5 /* LaunchScreen.storyboard */; };
+		D1FE2E0621A5CF2F007D92D5 /* KinoogonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2E0521A5CF2F007D92D5 /* KinoogonTests.swift */; };
+		D1FE2E1121A5CF2F007D92D5 /* KinoogonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2E1021A5CF2F007D92D5 /* KinoogonUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D1FE2E0221A5CF2F007D92D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1FE2DE521A5CF2C007D92D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1FE2DEC21A5CF2C007D92D5;
+			remoteInfo = Kinoogon;
+		};
+		D1FE2E0D21A5CF2F007D92D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1FE2DE521A5CF2C007D92D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1FE2DEC21A5CF2C007D92D5;
+			remoteInfo = Kinoogon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D1FE2DED21A5CF2C007D92D5 /* Kinoogon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kinoogon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1FE2DF021A5CF2C007D92D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D1FE2DF221A5CF2C007D92D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D1FE2DF521A5CF2C007D92D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D1FE2DF721A5CF2F007D92D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D1FE2DFA21A5CF2F007D92D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D1FE2DFC21A5CF2F007D92D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1FE2E0121A5CF2F007D92D5 /* KinoogonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KinoogonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1FE2E0521A5CF2F007D92D5 /* KinoogonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinoogonTests.swift; sourceTree = "<group>"; };
+		D1FE2E0721A5CF2F007D92D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1FE2E0C21A5CF2F007D92D5 /* KinoogonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KinoogonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1FE2E1021A5CF2F007D92D5 /* KinoogonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinoogonUITests.swift; sourceTree = "<group>"; };
+		D1FE2E1221A5CF2F007D92D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D1FE2DEA21A5CF2C007D92D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1FE2DFE21A5CF2F007D92D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1FE2E0921A5CF2F007D92D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D1FE2DE421A5CF2C007D92D5 = {
+			isa = PBXGroup;
+			children = (
+				D1FE2DEF21A5CF2C007D92D5 /* Kinoogon */,
+				D1FE2E0421A5CF2F007D92D5 /* KinoogonTests */,
+				D1FE2E0F21A5CF2F007D92D5 /* KinoogonUITests */,
+				D1FE2DEE21A5CF2C007D92D5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D1FE2DEE21A5CF2C007D92D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1FE2DED21A5CF2C007D92D5 /* Kinoogon.app */,
+				D1FE2E0121A5CF2F007D92D5 /* KinoogonTests.xctest */,
+				D1FE2E0C21A5CF2F007D92D5 /* KinoogonUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D1FE2DEF21A5CF2C007D92D5 /* Kinoogon */ = {
+			isa = PBXGroup;
+			children = (
+				D1FE2DF021A5CF2C007D92D5 /* AppDelegate.swift */,
+				D1FE2DF221A5CF2C007D92D5 /* ViewController.swift */,
+				D1FE2DF421A5CF2C007D92D5 /* Main.storyboard */,
+				D1FE2DF721A5CF2F007D92D5 /* Assets.xcassets */,
+				D1FE2DF921A5CF2F007D92D5 /* LaunchScreen.storyboard */,
+				D1FE2DFC21A5CF2F007D92D5 /* Info.plist */,
+			);
+			path = Kinoogon;
+			sourceTree = "<group>";
+		};
+		D1FE2E0421A5CF2F007D92D5 /* KinoogonTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1FE2E0521A5CF2F007D92D5 /* KinoogonTests.swift */,
+				D1FE2E0721A5CF2F007D92D5 /* Info.plist */,
+			);
+			path = KinoogonTests;
+			sourceTree = "<group>";
+		};
+		D1FE2E0F21A5CF2F007D92D5 /* KinoogonUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D1FE2E1021A5CF2F007D92D5 /* KinoogonUITests.swift */,
+				D1FE2E1221A5CF2F007D92D5 /* Info.plist */,
+			);
+			path = KinoogonUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D1FE2DEC21A5CF2C007D92D5 /* Kinoogon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1FE2E1521A5CF30007D92D5 /* Build configuration list for PBXNativeTarget "Kinoogon" */;
+			buildPhases = (
+				D1FE2DE921A5CF2C007D92D5 /* Sources */,
+				D1FE2DEA21A5CF2C007D92D5 /* Frameworks */,
+				D1FE2DEB21A5CF2C007D92D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kinoogon;
+			productName = Kinoogon;
+			productReference = D1FE2DED21A5CF2C007D92D5 /* Kinoogon.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D1FE2E0021A5CF2F007D92D5 /* KinoogonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1FE2E1821A5CF30007D92D5 /* Build configuration list for PBXNativeTarget "KinoogonTests" */;
+			buildPhases = (
+				D1FE2DFD21A5CF2F007D92D5 /* Sources */,
+				D1FE2DFE21A5CF2F007D92D5 /* Frameworks */,
+				D1FE2DFF21A5CF2F007D92D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1FE2E0321A5CF2F007D92D5 /* PBXTargetDependency */,
+			);
+			name = KinoogonTests;
+			productName = KinoogonTests;
+			productReference = D1FE2E0121A5CF2F007D92D5 /* KinoogonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D1FE2E0B21A5CF2F007D92D5 /* KinoogonUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1FE2E1B21A5CF30007D92D5 /* Build configuration list for PBXNativeTarget "KinoogonUITests" */;
+			buildPhases = (
+				D1FE2E0821A5CF2F007D92D5 /* Sources */,
+				D1FE2E0921A5CF2F007D92D5 /* Frameworks */,
+				D1FE2E0A21A5CF2F007D92D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1FE2E0E21A5CF2F007D92D5 /* PBXTargetDependency */,
+			);
+			name = KinoogonUITests;
+			productName = KinoogonUITests;
+			productReference = D1FE2E0C21A5CF2F007D92D5 /* KinoogonUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D1FE2DE521A5CF2C007D92D5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Sultan Karybaev";
+				TargetAttributes = {
+					D1FE2DEC21A5CF2C007D92D5 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					D1FE2E0021A5CF2F007D92D5 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = D1FE2DEC21A5CF2C007D92D5;
+					};
+					D1FE2E0B21A5CF2F007D92D5 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = D1FE2DEC21A5CF2C007D92D5;
+					};
+				};
+			};
+			buildConfigurationList = D1FE2DE821A5CF2C007D92D5 /* Build configuration list for PBXProject "Kinoogon" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D1FE2DE421A5CF2C007D92D5;
+			productRefGroup = D1FE2DEE21A5CF2C007D92D5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D1FE2DEC21A5CF2C007D92D5 /* Kinoogon */,
+				D1FE2E0021A5CF2F007D92D5 /* KinoogonTests */,
+				D1FE2E0B21A5CF2F007D92D5 /* KinoogonUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D1FE2DEB21A5CF2C007D92D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1FE2DFB21A5CF2F007D92D5 /* LaunchScreen.storyboard in Resources */,
+				D1FE2DF821A5CF2F007D92D5 /* Assets.xcassets in Resources */,
+				D1FE2DF621A5CF2C007D92D5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1FE2DFF21A5CF2F007D92D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1FE2E0A21A5CF2F007D92D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D1FE2DE921A5CF2C007D92D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1FE2DF321A5CF2C007D92D5 /* ViewController.swift in Sources */,
+				D1FE2DF121A5CF2C007D92D5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1FE2DFD21A5CF2F007D92D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1FE2E0621A5CF2F007D92D5 /* KinoogonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1FE2E0821A5CF2F007D92D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1FE2E1121A5CF2F007D92D5 /* KinoogonUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D1FE2E0321A5CF2F007D92D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1FE2DEC21A5CF2C007D92D5 /* Kinoogon */;
+			targetProxy = D1FE2E0221A5CF2F007D92D5 /* PBXContainerItemProxy */;
+		};
+		D1FE2E0E21A5CF2F007D92D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1FE2DEC21A5CF2C007D92D5 /* Kinoogon */;
+			targetProxy = D1FE2E0D21A5CF2F007D92D5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D1FE2DF421A5CF2C007D92D5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1FE2DF521A5CF2C007D92D5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D1FE2DF921A5CF2F007D92D5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1FE2DFA21A5CF2F007D92D5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D1FE2E1321A5CF30007D92D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D1FE2E1421A5CF30007D92D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D1FE2E1621A5CF30007D92D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 78TPJ6Q7L6;
+				INFOPLIST_FILE = Kinoogon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sultankarybaev.Kinoogon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D1FE2E1721A5CF30007D92D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 78TPJ6Q7L6;
+				INFOPLIST_FILE = Kinoogon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sultankarybaev.Kinoogon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D1FE2E1921A5CF30007D92D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 78TPJ6Q7L6;
+				INFOPLIST_FILE = KinoogonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sultankarybaev.KinoogonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kinoogon.app/Kinoogon";
+			};
+			name = Debug;
+		};
+		D1FE2E1A21A5CF30007D92D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 78TPJ6Q7L6;
+				INFOPLIST_FILE = KinoogonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sultankarybaev.KinoogonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kinoogon.app/Kinoogon";
+			};
+			name = Release;
+		};
+		D1FE2E1C21A5CF30007D92D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 78TPJ6Q7L6;
+				INFOPLIST_FILE = KinoogonUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sultankarybaev.KinoogonUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Kinoogon;
+			};
+			name = Debug;
+		};
+		D1FE2E1D21A5CF30007D92D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 78TPJ6Q7L6;
+				INFOPLIST_FILE = KinoogonUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sultankarybaev.KinoogonUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Kinoogon;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D1FE2DE821A5CF2C007D92D5 /* Build configuration list for PBXProject "Kinoogon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1FE2E1321A5CF30007D92D5 /* Debug */,
+				D1FE2E1421A5CF30007D92D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1FE2E1521A5CF30007D92D5 /* Build configuration list for PBXNativeTarget "Kinoogon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1FE2E1621A5CF30007D92D5 /* Debug */,
+				D1FE2E1721A5CF30007D92D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1FE2E1821A5CF30007D92D5 /* Build configuration list for PBXNativeTarget "KinoogonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1FE2E1921A5CF30007D92D5 /* Debug */,
+				D1FE2E1A21A5CF30007D92D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1FE2E1B21A5CF30007D92D5 /* Build configuration list for PBXNativeTarget "KinoogonUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1FE2E1C21A5CF30007D92D5 /* Debug */,
+				D1FE2E1D21A5CF30007D92D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D1FE2DE521A5CF2C007D92D5 /* Project object */;
+}
