@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D4CE7944129627D688EA056 /* Pods_KinoogonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9B222E7D893F447225AE3D /* Pods_KinoogonTests.framework */; };
+		AC70FFCB6BF87857BEFCAA07 /* Pods_KinoogonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F87981D9FF6A7EB64007BAFD /* Pods_KinoogonUITests.framework */; };
+		D100E56021AEA23C00864F18 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D100E55F21AEA23C00864F18 /* UILabel.swift */; };
+		D100E56221AEA77300864F18 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D100E56121AEA77300864F18 /* UIButton.swift */; };
+		D101E6B321AAB885007690CA /* SoundCloudCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101E6B221AAB885007690CA /* SoundCloudCell.swift */; };
+		D101F6B321AD400B00AE0309 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D101F6B121AD400B00AE0309 /* PlayerView.xib */; };
+		D102FF4D21ABF8CD00E453D1 /* YouTubeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D102FF4C21ABF8CD00E453D1 /* YouTubeListVC.swift */; };
+		D104BAEC21AB0167001C2EAC /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D104BAE921AAFFB0001C2EAC /* video.mp4 */; };
 		D1FE2DF121A5CF2C007D92D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2DF021A5CF2C007D92D5 /* AppDelegate.swift */; };
 		D1FE2DF321A5CF2C007D92D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2DF221A5CF2C007D92D5 /* ViewController.swift */; };
 		D1FE2DF621A5CF2C007D92D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FE2DF421A5CF2C007D92D5 /* Main.storyboard */; };
@@ -14,6 +22,17 @@
 		D1FE2DFB21A5CF2F007D92D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FE2DF921A5CF2F007D92D5 /* LaunchScreen.storyboard */; };
 		D1FE2E0621A5CF2F007D92D5 /* KinoogonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2E0521A5CF2F007D92D5 /* KinoogonTests.swift */; };
 		D1FE2E1121A5CF2F007D92D5 /* KinoogonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2E1021A5CF2F007D92D5 /* KinoogonUITests.swift */; };
+		D1FEA83721AFC3EA00D7C488 /* UISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEA83621AFC3EA00D7C488 /* UISlider.swift */; };
+		D1FEA83921AFD0C500D7C488 /* CommonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEA83821AFD0C500D7C488 /* CommonTableCell.swift */; };
+		D1FEA83B21B040A800D7C488 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEA83A21B040A800D7C488 /* Constants.swift */; };
+		D1FEDDF221A84625002731A9 /* PodcastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDDF121A84625002731A9 /* PodcastVC.swift */; };
+		D1FF33E621AC6F06004F2C91 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF33E521AC6F05004F2C91 /* PlayerView.swift */; };
+		D1FF411721A6B5B600F3D2F2 /* SoundCloudVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF411621A6B5B600F3D2F2 /* SoundCloudVC.swift */; };
+		D1FF411921A71AA400F3D2F2 /* Blue - Curtain Falls.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D1FF411821A71AA400F3D2F2 /* Blue - Curtain Falls.mp3 */; };
+		D1FFB72721A9305A0031E892 /* CustomViewControllerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB72621A9305A0031E892 /* CustomViewControllerAnimator.swift */; };
+		D1FFB72921A939E60031E892 /* PodcastNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB72821A939E60031E892 /* PodcastNC.swift */; };
+		D1FFB72B21A95E030031E892 /* TransitionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFB72A21A95E030031E892 /* TransitionInteractor.swift */; };
+		F82DB8EAD4D11C3574AA8456 /* Pods_Kinoogon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582E79ABCF4DD1867FBD8071 /* Pods_Kinoogon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +53,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		582E79ABCF4DD1867FBD8071 /* Pods_Kinoogon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kinoogon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8391A7755C032D852278CF82 /* Pods-KinoogonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinoogonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KinoogonTests/Pods-KinoogonTests.release.xcconfig"; sourceTree = "<group>"; };
+		9F8AC9E91B1E7C5DBDC408DC /* Pods-KinoogonUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinoogonUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KinoogonUITests/Pods-KinoogonUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AA9B222E7D893F447225AE3D /* Pods_KinoogonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KinoogonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD616624A1E547816DBD2969 /* Pods-Kinoogon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kinoogon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kinoogon/Pods-Kinoogon.debug.xcconfig"; sourceTree = "<group>"; };
+		D100E55F21AEA23C00864F18 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		D100E56121AEA77300864F18 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		D101E6B221AAB885007690CA /* SoundCloudCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundCloudCell.swift; sourceTree = "<group>"; };
+		D101F6B121AD400B00AE0309 /* PlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
+		D102FF4C21ABF8CD00E453D1 /* YouTubeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeListVC.swift; sourceTree = "<group>"; };
+		D104BAE921AAFFB0001C2EAC /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		D1FE2DED21A5CF2C007D92D5 /* Kinoogon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kinoogon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FE2DF021A5CF2C007D92D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1FE2DF221A5CF2C007D92D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +77,20 @@
 		D1FE2E0C21A5CF2F007D92D5 /* KinoogonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KinoogonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FE2E1021A5CF2F007D92D5 /* KinoogonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinoogonUITests.swift; sourceTree = "<group>"; };
 		D1FE2E1221A5CF2F007D92D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1FEA83621AFC3EA00D7C488 /* UISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISlider.swift; sourceTree = "<group>"; };
+		D1FEA83821AFD0C500D7C488 /* CommonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableCell.swift; sourceTree = "<group>"; };
+		D1FEA83A21B040A800D7C488 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D1FEDDF121A84625002731A9 /* PodcastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastVC.swift; sourceTree = "<group>"; };
+		D1FF33E521AC6F05004F2C91 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		D1FF411621A6B5B600F3D2F2 /* SoundCloudVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundCloudVC.swift; sourceTree = "<group>"; };
+		D1FF411821A71AA400F3D2F2 /* Blue - Curtain Falls.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Blue - Curtain Falls.mp3"; sourceTree = "<group>"; };
+		D1FFB72621A9305A0031E892 /* CustomViewControllerAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewControllerAnimator.swift; sourceTree = "<group>"; };
+		D1FFB72821A939E60031E892 /* PodcastNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastNC.swift; sourceTree = "<group>"; };
+		D1FFB72A21A95E030031E892 /* TransitionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionInteractor.swift; sourceTree = "<group>"; };
+		D2846FA1E72D23B302519315 /* Pods-KinoogonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinoogonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KinoogonTests/Pods-KinoogonTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D84B146E4E9A5F1AF7ED0577 /* Pods-Kinoogon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kinoogon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kinoogon/Pods-Kinoogon.release.xcconfig"; sourceTree = "<group>"; };
+		E54A9C80FF829C4385077A30 /* Pods-KinoogonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinoogonUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KinoogonUITests/Pods-KinoogonUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F87981D9FF6A7EB64007BAFD /* Pods_KinoogonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KinoogonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F82DB8EAD4D11C3574AA8456 /* Pods_Kinoogon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D4CE7944129627D688EA056 /* Pods_KinoogonTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +114,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC70FFCB6BF87857BEFCAA07 /* Pods_KinoogonUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		345E8AD9B731E445D6EED933 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				582E79ABCF4DD1867FBD8071 /* Pods_Kinoogon.framework */,
+				AA9B222E7D893F447225AE3D /* Pods_KinoogonTests.framework */,
+				F87981D9FF6A7EB64007BAFD /* Pods_KinoogonUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D100E55E21AEA1E000864F18 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D100E55F21AEA23C00864F18 /* UILabel.swift */,
+				D100E56121AEA77300864F18 /* UIButton.swift */,
+				D1FEA83621AFC3EA00D7C488 /* UISlider.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D1FE2DE421A5CF2C007D92D5 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +148,8 @@
 				D1FE2E0421A5CF2F007D92D5 /* KinoogonTests */,
 				D1FE2E0F21A5CF2F007D92D5 /* KinoogonUITests */,
 				D1FE2DEE21A5CF2C007D92D5 /* Products */,
+				FD34473B54C8598D324A7E41 /* Pods */,
+				345E8AD9B731E445D6EED933 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,8 +166,14 @@
 		D1FE2DEF21A5CF2C007D92D5 /* Kinoogon */ = {
 			isa = PBXGroup;
 			children = (
+				D100E55E21AEA1E000864F18 /* Extensions */,
+				D1FFB72521A930400031E892 /* Utils */,
+				D1FEDDF321A846D1002731A9 /* Views */,
+				D1FF411521A6B58800F3D2F2 /* ViewControllers */,
 				D1FE2DF021A5CF2C007D92D5 /* AppDelegate.swift */,
 				D1FE2DF221A5CF2C007D92D5 /* ViewController.swift */,
+				D104BAE921AAFFB0001C2EAC /* video.mp4 */,
+				D1FF411821A71AA400F3D2F2 /* Blue - Curtain Falls.mp3 */,
 				D1FE2DF421A5CF2C007D92D5 /* Main.storyboard */,
 				D1FE2DF721A5CF2F007D92D5 /* Assets.xcassets */,
 				D1FE2DF921A5CF2F007D92D5 /* LaunchScreen.storyboard */,
@@ -125,6 +200,51 @@
 			path = KinoogonUITests;
 			sourceTree = "<group>";
 		};
+		D1FEDDF321A846D1002731A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D101F6B121AD400B00AE0309 /* PlayerView.xib */,
+				D1FF33E521AC6F05004F2C91 /* PlayerView.swift */,
+				D101E6B221AAB885007690CA /* SoundCloudCell.swift */,
+				D1FEA83821AFD0C500D7C488 /* CommonTableCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D1FF411521A6B58800F3D2F2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1FF411621A6B5B600F3D2F2 /* SoundCloudVC.swift */,
+				D1FEDDF121A84625002731A9 /* PodcastVC.swift */,
+				D1FFB72821A939E60031E892 /* PodcastNC.swift */,
+				D102FF4C21ABF8CD00E453D1 /* YouTubeListVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D1FFB72521A930400031E892 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D1FFB72621A9305A0031E892 /* CustomViewControllerAnimator.swift */,
+				D1FFB72A21A95E030031E892 /* TransitionInteractor.swift */,
+				D1FEA83A21B040A800D7C488 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FD34473B54C8598D324A7E41 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD616624A1E547816DBD2969 /* Pods-Kinoogon.debug.xcconfig */,
+				D84B146E4E9A5F1AF7ED0577 /* Pods-Kinoogon.release.xcconfig */,
+				D2846FA1E72D23B302519315 /* Pods-KinoogonTests.debug.xcconfig */,
+				8391A7755C032D852278CF82 /* Pods-KinoogonTests.release.xcconfig */,
+				9F8AC9E91B1E7C5DBDC408DC /* Pods-KinoogonUITests.debug.xcconfig */,
+				E54A9C80FF829C4385077A30 /* Pods-KinoogonUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +252,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1FE2E1521A5CF30007D92D5 /* Build configuration list for PBXNativeTarget "Kinoogon" */;
 			buildPhases = (
+				9406D0AE67E4E0225934EEB7 /* [CP] Check Pods Manifest.lock */,
 				D1FE2DE921A5CF2C007D92D5 /* Sources */,
 				D1FE2DEA21A5CF2C007D92D5 /* Frameworks */,
 				D1FE2DEB21A5CF2C007D92D5 /* Resources */,
+				38F30A67F013CCBD0C0AA82F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +271,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1FE2E1821A5CF30007D92D5 /* Build configuration list for PBXNativeTarget "KinoogonTests" */;
 			buildPhases = (
+				83DB1C0591277A94D5AE73E5 /* [CP] Check Pods Manifest.lock */,
 				D1FE2DFD21A5CF2F007D92D5 /* Sources */,
 				D1FE2DFE21A5CF2F007D92D5 /* Frameworks */,
 				D1FE2DFF21A5CF2F007D92D5 /* Resources */,
@@ -167,6 +290,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1FE2E1B21A5CF30007D92D5 /* Build configuration list for PBXNativeTarget "KinoogonUITests" */;
 			buildPhases = (
+				B8B52522E63AAF65A5D17FBE /* [CP] Check Pods Manifest.lock */,
 				D1FE2E0821A5CF2F007D92D5 /* Sources */,
 				D1FE2E0921A5CF2F007D92D5 /* Frameworks */,
 				D1FE2E0A21A5CF2F007D92D5 /* Resources */,
@@ -229,9 +353,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D104BAEC21AB0167001C2EAC /* video.mp4 in Resources */,
 				D1FE2DFB21A5CF2F007D92D5 /* LaunchScreen.storyboard in Resources */,
+				D101F6B321AD400B00AE0309 /* PlayerView.xib in Resources */,
 				D1FE2DF821A5CF2F007D92D5 /* Assets.xcassets in Resources */,
 				D1FE2DF621A5CF2C007D92D5 /* Main.storyboard in Resources */,
+				D1FF411921A71AA400F3D2F2 /* Blue - Curtain Falls.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +378,105 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		38F30A67F013CCBD0C0AA82F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Kinoogon/Pods-Kinoogon-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper-swift/youtube_ios_player_helper_swift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper_swift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kinoogon/Pods-Kinoogon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83DB1C0591277A94D5AE73E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KinoogonTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9406D0AE67E4E0225934EEB7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kinoogon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8B52522E63AAF65A5D17FBE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KinoogonUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D1FE2DE921A5CF2C007D92D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D1FE2DF321A5CF2C007D92D5 /* ViewController.swift in Sources */,
+				D1FEA83921AFD0C500D7C488 /* CommonTableCell.swift in Sources */,
+				D1FEDDF221A84625002731A9 /* PodcastVC.swift in Sources */,
+				D102FF4D21ABF8CD00E453D1 /* YouTubeListVC.swift in Sources */,
+				D100E56021AEA23C00864F18 /* UILabel.swift in Sources */,
+				D1FEA83B21B040A800D7C488 /* Constants.swift in Sources */,
+				D1FFB72B21A95E030031E892 /* TransitionInteractor.swift in Sources */,
+				D1FFB72721A9305A0031E892 /* CustomViewControllerAnimator.swift in Sources */,
+				D1FFB72921A939E60031E892 /* PodcastNC.swift in Sources */,
 				D1FE2DF121A5CF2C007D92D5 /* AppDelegate.swift in Sources */,
+				D1FF33E621AC6F06004F2C91 /* PlayerView.swift in Sources */,
+				D1FF411721A6B5B600F3D2F2 /* SoundCloudVC.swift in Sources */,
+				D101E6B321AAB885007690CA /* SoundCloudCell.swift in Sources */,
+				D100E56221AEA77300864F18 /* UIButton.swift in Sources */,
+				D1FEA83721AFC3EA00D7C488 /* UISlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +649,7 @@
 		};
 		D1FE2E1621A5CF30007D92D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD616624A1E547816DBD2969 /* Pods-Kinoogon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +668,7 @@
 		};
 		D1FE2E1721A5CF30007D92D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D84B146E4E9A5F1AF7ED0577 /* Pods-Kinoogon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +687,7 @@
 		};
 		D1FE2E1921A5CF30007D92D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2846FA1E72D23B302519315 /* Pods-KinoogonTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +709,7 @@
 		};
 		D1FE2E1A21A5CF30007D92D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8391A7755C032D852278CF82 /* Pods-KinoogonTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +731,7 @@
 		};
 		D1FE2E1C21A5CF30007D92D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F8AC9E91B1E7C5DBDC408DC /* Pods-KinoogonUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +752,7 @@
 		};
 		D1FE2E1D21A5CF30007D92D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E54A9C80FF829C4385077A30 /* Pods-KinoogonUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

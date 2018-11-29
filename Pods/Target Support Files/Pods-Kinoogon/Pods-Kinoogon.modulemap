@@ -1,0 +1,6 @@
+framework module Pods_Kinoogon {
+  umbrella header "Pods-Kinoogon-umbrella.h"
+
+  export *
+  module * { export * }
+}
