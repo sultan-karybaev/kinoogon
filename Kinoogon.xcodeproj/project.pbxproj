@@ -13,8 +13,13 @@
 		D100E56221AEA77300864F18 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D100E56121AEA77300864F18 /* UIButton.swift */; };
 		D101E6B321AAB885007690CA /* SoundCloudCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101E6B221AAB885007690CA /* SoundCloudCell.swift */; };
 		D101F6B321AD400B00AE0309 /* PlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D101F6B121AD400B00AE0309 /* PlayerView.xib */; };
+		D102F9AD21EA3C3400994A78 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D102F9AC21EA3C3400994A78 /* Player.swift */; };
 		D102FF4D21ABF8CD00E453D1 /* YouTubeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D102FF4C21ABF8CD00E453D1 /* YouTubeListVC.swift */; };
 		D104BAEC21AB0167001C2EAC /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D104BAE921AAFFB0001C2EAC /* video.mp4 */; };
+		D105646321EB9AE5004A5D24 /* Interactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105646221EB9AE5004A5D24 /* Interactive.swift */; };
+		D105C51121DF21E300EB1C14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D105C51021DF21E300EB1C14 /* GoogleService-Info.plist */; };
+		D111C7C621B443960002EFFC /* TopListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D111C7C521B443960002EFFC /* TopListVC.swift */; };
+		D164FF0621E79D3F003BA1B3 /* MainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164FF0521E79D3F003BA1B3 /* MainNC.swift */; };
 		D1FE2DF121A5CF2C007D92D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2DF021A5CF2C007D92D5 /* AppDelegate.swift */; };
 		D1FE2DF321A5CF2C007D92D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2DF221A5CF2C007D92D5 /* ViewController.swift */; };
 		D1FE2DF621A5CF2C007D92D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FE2DF421A5CF2C007D92D5 /* Main.storyboard */; };
@@ -25,6 +30,7 @@
 		D1FEA83721AFC3EA00D7C488 /* UISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEA83621AFC3EA00D7C488 /* UISlider.swift */; };
 		D1FEA83921AFD0C500D7C488 /* CommonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEA83821AFD0C500D7C488 /* CommonTableCell.swift */; };
 		D1FEA83B21B040A800D7C488 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEA83A21B040A800D7C488 /* Constants.swift */; };
+		D1FEA83D21B04E3300D7C488 /* YouTubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEA83C21B04E3300D7C488 /* YouTubeVideo.swift */; };
 		D1FEDDF221A84625002731A9 /* PodcastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDDF121A84625002731A9 /* PodcastVC.swift */; };
 		D1FF33E621AC6F06004F2C91 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF33E521AC6F05004F2C91 /* PlayerView.swift */; };
 		D1FF411721A6B5B600F3D2F2 /* SoundCloudVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF411621A6B5B600F3D2F2 /* SoundCloudVC.swift */; };
@@ -62,8 +68,13 @@
 		D100E56121AEA77300864F18 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		D101E6B221AAB885007690CA /* SoundCloudCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundCloudCell.swift; sourceTree = "<group>"; };
 		D101F6B121AD400B00AE0309 /* PlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerView.xib; sourceTree = "<group>"; };
+		D102F9AC21EA3C3400994A78 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D102FF4C21ABF8CD00E453D1 /* YouTubeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeListVC.swift; sourceTree = "<group>"; };
 		D104BAE921AAFFB0001C2EAC /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		D105646221EB9AE5004A5D24 /* Interactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactive.swift; sourceTree = "<group>"; };
+		D105C51021DF21E300EB1C14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D111C7C521B443960002EFFC /* TopListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListVC.swift; sourceTree = "<group>"; };
+		D164FF0521E79D3F003BA1B3 /* MainNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNC.swift; sourceTree = "<group>"; };
 		D1FE2DED21A5CF2C007D92D5 /* Kinoogon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kinoogon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FE2DF021A5CF2C007D92D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1FE2DF221A5CF2C007D92D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +91,7 @@
 		D1FEA83621AFC3EA00D7C488 /* UISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISlider.swift; sourceTree = "<group>"; };
 		D1FEA83821AFD0C500D7C488 /* CommonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableCell.swift; sourceTree = "<group>"; };
 		D1FEA83A21B040A800D7C488 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D1FEA83C21B04E3300D7C488 /* YouTubeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeVideo.swift; sourceTree = "<group>"; };
 		D1FEDDF121A84625002731A9 /* PodcastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastVC.swift; sourceTree = "<group>"; };
 		D1FF33E521AC6F05004F2C91 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		D1FF411621A6B5B600F3D2F2 /* SoundCloudVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundCloudVC.swift; sourceTree = "<group>"; };
@@ -141,6 +153,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D102F9AE21EA4E2E00994A78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1FEA83C21B04E3300D7C488 /* YouTubeVideo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D1FE2DE421A5CF2C007D92D5 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +186,7 @@
 		D1FE2DEF21A5CF2C007D92D5 /* Kinoogon */ = {
 			isa = PBXGroup;
 			children = (
+				D102F9AE21EA4E2E00994A78 /* Model */,
 				D100E55E21AEA1E000864F18 /* Extensions */,
 				D1FFB72521A930400031E892 /* Utils */,
 				D1FEDDF321A846D1002731A9 /* Views */,
@@ -178,6 +199,7 @@
 				D1FE2DF721A5CF2F007D92D5 /* Assets.xcassets */,
 				D1FE2DF921A5CF2F007D92D5 /* LaunchScreen.storyboard */,
 				D1FE2DFC21A5CF2F007D92D5 /* Info.plist */,
+				D105C51021DF21E300EB1C14 /* GoogleService-Info.plist */,
 			);
 			path = Kinoogon;
 			sourceTree = "<group>";
@@ -218,6 +240,8 @@
 				D1FEDDF121A84625002731A9 /* PodcastVC.swift */,
 				D1FFB72821A939E60031E892 /* PodcastNC.swift */,
 				D102FF4C21ABF8CD00E453D1 /* YouTubeListVC.swift */,
+				D111C7C521B443960002EFFC /* TopListVC.swift */,
+				D164FF0521E79D3F003BA1B3 /* MainNC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -228,6 +252,8 @@
 				D1FFB72621A9305A0031E892 /* CustomViewControllerAnimator.swift */,
 				D1FFB72A21A95E030031E892 /* TransitionInteractor.swift */,
 				D1FEA83A21B040A800D7C488 /* Constants.swift */,
+				D102F9AC21EA3C3400994A78 /* Player.swift */,
+				D105646221EB9AE5004A5D24 /* Interactive.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -317,6 +343,11 @@
 				TargetAttributes = {
 					D1FE2DEC21A5CF2C007D92D5 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					D1FE2E0021A5CF2F007D92D5 = {
 						CreatedOnToolsVersion = 10.1;
@@ -359,6 +390,7 @@
 				D1FE2DF821A5CF2F007D92D5 /* Assets.xcassets in Resources */,
 				D1FE2DF621A5CF2C007D92D5 /* Main.storyboard in Resources */,
 				D1FF411921A71AA400F3D2F2 /* Blue - Curtain Falls.mp3 in Resources */,
+				D105C51121DF21E300EB1C14 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,13 +419,23 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Kinoogon/Pods-Kinoogon-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper-swift/youtube_ios_player_helper_swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper_swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1FE2DF321A5CF2C007D92D5 /* ViewController.swift in Sources */,
+				D1FEA83D21B04E3300D7C488 /* YouTubeVideo.swift in Sources */,
 				D1FEA83921AFD0C500D7C488 /* CommonTableCell.swift in Sources */,
 				D1FEDDF221A84625002731A9 /* PodcastVC.swift in Sources */,
 				D102FF4D21ABF8CD00E453D1 /* YouTubeListVC.swift in Sources */,
@@ -470,11 +513,15 @@
 				D1FEA83B21B040A800D7C488 /* Constants.swift in Sources */,
 				D1FFB72B21A95E030031E892 /* TransitionInteractor.swift in Sources */,
 				D1FFB72721A9305A0031E892 /* CustomViewControllerAnimator.swift in Sources */,
+				D164FF0621E79D3F003BA1B3 /* MainNC.swift in Sources */,
 				D1FFB72921A939E60031E892 /* PodcastNC.swift in Sources */,
 				D1FE2DF121A5CF2C007D92D5 /* AppDelegate.swift in Sources */,
 				D1FF33E621AC6F06004F2C91 /* PlayerView.swift in Sources */,
 				D1FF411721A6B5B600F3D2F2 /* SoundCloudVC.swift in Sources */,
+				D105646321EB9AE5004A5D24 /* Interactive.swift in Sources */,
 				D101E6B321AAB885007690CA /* SoundCloudCell.swift in Sources */,
+				D111C7C621B443960002EFFC /* TopListVC.swift in Sources */,
+				D102F9AD21EA3C3400994A78 /* Player.swift in Sources */,
 				D100E56221AEA77300864F18 /* UIButton.swift in Sources */,
 				D1FEA83721AFC3EA00D7C488 /* UISlider.swift in Sources */,
 			);
@@ -655,14 +702,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78TPJ6Q7L6;
 				INFOPLIST_FILE = Kinoogon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sultankarybaev.Kinoogon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -674,6 +724,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78TPJ6Q7L6;
 				INFOPLIST_FILE = Kinoogon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -681,7 +732,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sultankarybaev.Kinoogon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

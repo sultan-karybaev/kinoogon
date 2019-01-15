@@ -36,13 +36,13 @@
                                                         <constraint firstAttribute="height" constant="1" id="OXB-3c-qet"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KinoogonImage" translatesAutoresizingMaskIntoConstraints="NO" id="GTs-5h-Cbq">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GTs-5h-Cbq">
                                                     <rect key="frame" x="10" y="10" width="355" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="128" id="bEC-5I-JxL"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вечерний Ургант. Саша Бортич, группа &quot;Ногу свело!&quot;. 1048 выпуск от 28.11.2018" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5T-w8-Inz">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5T-w8-Inz">
                                                     <rect key="frame" x="10" y="148" width="355" height="142"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,6 +67,7 @@
                                             <outlet property="imageHeight" destination="bEC-5I-JxL" id="mmj-TS-d6a"/>
                                             <outlet property="mainImage" destination="GTs-5h-Cbq" id="Bm1-N9-u8Z"/>
                                             <outlet property="separatorView" destination="2e5-82-vV7" id="dWA-Dq-wUE"/>
+                                            <outlet property="titleLabel" destination="W5T-w8-Inz" id="nR8-NN-PjL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -136,7 +137,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" red="0.086274509799999996" green="0.12941176469999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SoundCloudCell" rowHeight="80" id="m9J-dp-WKs" customClass="SoundCloudCell" customModule="Kinoogon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SoundCloudCell" rowHeight="80" id="m9J-dp-WKs" customClass="SoundCloudCell" customModule="Kinoogon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m9J-dp-WKs" id="Jg4-wI-VGY">
@@ -207,6 +208,7 @@
                     <tabBarItem key="tabBarItem" title="Подкасты" image="play-button-2" id="hze-eA-tsg"/>
                     <navigationItem key="navigationItem" id="oHA-JN-R4f"/>
                     <connections>
+                        <outlet property="bottomSafeAreaConstraint" destination="ZG2-tf-YBA" id="zty-X9-zzT"/>
                         <outlet property="tableView" destination="GzC-R3-jZV" id="qO1-S9-9PZ"/>
                     </connections>
                 </viewController>
@@ -246,10 +248,10 @@
                                     <action selector="togglePlayPause:" destination="SUD-8X-ahI" eventType="touchUpInside" id="VQE-PN-MKR"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KinoogonImage" translatesAutoresizingMaskIntoConstraints="NO" id="gf3-rC-ObB">
-                                <rect key="frame" x="107.5" y="104" width="160" height="160"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KinoogonImage" translatesAutoresizingMaskIntoConstraints="NO" id="gf3-rC-ObB">
+                                <rect key="frame" x="107.5" y="144" width="160" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="gf3-rC-ObB" secondAttribute="height" multiplier="1:1" id="KtC-vf-gdz"/>
+                                    <constraint firstAttribute="height" constant="160" id="P2V-nA-g7U"/>
                                     <constraint firstAttribute="width" constant="160" id="gBa-B9-gfD"/>
                                 </constraints>
                             </imageView>
@@ -281,7 +283,7 @@
                             <constraint firstItem="ZH5-uZ-G9Y" firstAttribute="centerY" secondItem="alb-HG-qKD" secondAttribute="centerY" id="TPE-u9-Vbo"/>
                             <constraint firstItem="KFd-ZB-ZRv" firstAttribute="centerX" secondItem="FrP-Ts-AqM" secondAttribute="centerX" id="XCZ-cj-LIf"/>
                             <constraint firstItem="alb-HG-qKD" firstAttribute="top" secondItem="KFd-ZB-ZRv" secondAttribute="bottom" constant="20" id="YML-Hh-Bs1"/>
-                            <constraint firstItem="gf3-rC-ObB" firstAttribute="top" secondItem="n3d-TN-yjk" secondAttribute="top" constant="40" id="Z15-OW-06M"/>
+                            <constraint firstItem="gf3-rC-ObB" firstAttribute="top" secondItem="n3d-TN-yjk" secondAttribute="top" constant="80" id="Z15-OW-06M"/>
                             <constraint firstItem="alb-HG-qKD" firstAttribute="centerX" secondItem="FrP-Ts-AqM" secondAttribute="centerX" id="ZOn-T4-Spg"/>
                             <constraint firstItem="wf7-Cz-jN4" firstAttribute="centerX" secondItem="FrP-Ts-AqM" secondAttribute="centerX" id="Zqo-CJ-4Vi"/>
                             <constraint firstItem="wf7-Cz-jN4" firstAttribute="top" secondItem="KFd-ZB-ZRv" secondAttribute="bottom" constant="80" id="i96-Fi-PZb"/>
@@ -297,6 +299,7 @@
                         <outlet property="currentTimeLabel" destination="jKv-Hk-svs" id="rbt-vM-8pw"/>
                         <outlet property="durationTimeLabel" destination="ZH5-uZ-G9Y" id="2Dx-75-r0E"/>
                         <outlet property="imageSize" destination="gBa-B9-gfD" id="x0W-5f-Nj9"/>
+                        <outlet property="mainImage" destination="gf3-rC-ObB" id="1cs-dQ-Pne"/>
                         <outlet property="playButton" destination="wf7-Cz-jN4" id="QnT-2h-SdW"/>
                         <outlet property="slider" destination="KFd-ZB-ZRv" id="zem-JO-bBB"/>
                     </connections>
@@ -347,24 +350,34 @@
         <!--Топы-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Kinoogon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TopListVC" customModule="Kinoogon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9eq-j0-bVr">
+                                <rect key="frame" x="0.0" y="64" width="250" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.90980392160000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Топы" image="line-chart" id="6zG-p9-eok"/>
                     <navigationItem key="navigationItem" id="NcH-hQ-4Pv"/>
+                    <connections>
+                        <outlet property="uiview" destination="9eq-j0-bVr" id="P8G-3i-ZgG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-567" y="764"/>
+            <point key="canvasLocation" x="-567.20000000000005" y="763.26836581709154"/>
         </scene>
         <!--SoundCloud-->
         <scene sceneID="ANL-Mv-WkP">
             <objects>
-                <navigationController id="iZC-Wo-yjp" sceneMemberID="viewController">
+                <navigationController id="iZC-Wo-yjp" customClass="MainNC" customModule="Kinoogon" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="SoundCloud" id="yeY-Xl-g9b"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Lpq-8W-Cna">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "28981C3CF37DF2BC2EEB64C278BE3182"
+               BlueprintIdentifier = "1C8456A5C7AC385134C5507E7214DB45"
                BuildableName = "Pods_Kinoogon.framework"
                BlueprintName = "Pods-Kinoogon"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "28981C3CF37DF2BC2EEB64C278BE3182"
+            BlueprintIdentifier = "1C8456A5C7AC385134C5507E7214DB45"
             BuildableName = "Pods_Kinoogon.framework"
             BlueprintName = "Pods-Kinoogon"
             ReferencedContainer = "container:Pods.xcodeproj">

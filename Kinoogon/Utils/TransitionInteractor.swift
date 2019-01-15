@@ -11,4 +11,9 @@ import UIKit
 class TransitionInteractor: UIPercentDrivenInteractiveTransition {
     var hasStarted = false
     var shouldFinish = false
+    
+    override func update(_ percentComplete: CGFloat) {
+        super.update(percentComplete)
+        //print("update")
+    }
 }

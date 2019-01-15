@@ -8,6 +8,11 @@ target 'Kinoogon' do
   pod 'youtube-ios-player-helper-swift'
   pod 'YouTubePlayer'
   pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+#  pod 'AudioPlayerSwift'
 
   # Pods for Kinoogon
 

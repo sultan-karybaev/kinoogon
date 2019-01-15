@@ -12,20 +12,27 @@ class CommonTableCell: UITableViewCell {
 
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var separatorView: UIView!
-    //private var rootView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    var videoId: String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //print("self.superview \(self.superview)")
-        //imageHeight.constant = (rootView.frame.width - 20) / 16 * 9
         mainImage.layer.cornerRadius = 10
     }
     
-    func configureCell(view: UIView) {
-        //rootView = view
+    func configureCell(view: UIView, id: String) {
         imageHeight.constant = (view.frame.width - 20) / 16 * 9
+        videoId = id
+    }
+    
+    func setTitle(title: String) {
+        titleLabel.text = title
+    }
+    
+    func setImage(data: Data) {
+        mainImage.image = UIImage(data: data)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
