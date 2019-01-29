@@ -29,14 +29,7 @@ class TopListVC: UIViewController {
         //web.loadHTMLString("<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/d-bw5eV8BdY\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>", baseURL: nil)
         
         
-        //URLRequest(
-        //web.load
-        hideTabbar()
-    }
-    
-    private func hideTabbar() {
-        self.tabBarController?.tabBar.frame.origin.y = self.tabBarController!.tabBar.frame.origin.y + 30
-        print("self.tabBarController?.tabBar.frame.origin.x \(self.tabBarController?.tabBar.frame.origin.y)")
+       
     }
 
 }

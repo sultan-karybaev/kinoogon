@@ -13,6 +13,7 @@ import FirebaseStorage
 //import AudioPlayer
 
 protocol PodcastDelegate {
+    func rollPodcast()
     func closePodcast()
 }
 
@@ -22,17 +23,30 @@ class PodcastVC: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var imageSize: NSLayoutConstraint!
+    @IBOutlet weak var mainImageTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var mainImageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var mainImageCenterXConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sliderLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sliderTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sliderCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var closeButtonViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var playButtonViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var closeButtonViewWidthContraint: NSLayoutConstraint!
+    @IBOutlet weak var podcastNameLabel: UILabel!
+    @IBOutlet weak var podcastNameLabelCenterYConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var closeButtonRolled: UIButton!
+    @IBOutlet weak var playButtonRolled: UIButton!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var durationTimeLabel: UILabel!
+    @IBOutlet weak var timeStackView: UIStackView!
     
     var player: AVPlayer!
-    var music = Bundle.main.path(forResource: "Blue - Curtain Falls", ofType: "mp3")!
-    let video = Bundle.main.path(forResource: "video", ofType: "mp4")!
     var asset: AVURLAsset!
-    var audioDuration: CMTime!
+    var audioDuration: CMTime?
     var audioDurationSeconds: Float64!
     var tapGestureRecognizer: UITapGestureRecognizer!
-    let youtube = "https://www.youtube.com/watch?v=YrlS5BUrhdY"
+    public var podcastName: String = "Music Music Music Music Music Music Music Music Music Music Music Music"
     
     var audioPlayer: AVAudioPlayer!
     
@@ -41,20 +55,24 @@ class PodcastVC: UIViewController {
     override func viewDidLoad() {
         print("viewDidLoad PodcastVC")
         super.viewDidLoad()
+        Player.instance.delegate = self
         self.setNavigationBackButton()
+        self.setLayer()
         currentTimeLabel.setTime(time: 0)
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(sliderTapped(gestureRecognizer:)))
         self.slider.addGestureRecognizer(tapGestureRecognizer)
         
-        //imageSize.constant = view.frame.height * 0.3
+        imageSize.constant = view.frame.height * 0.3
+        mainImageHeightConstraint.constant = view.frame.height * 0.3
         
-        setPlayPauseImage(imageName: "rounded-pause-button")
+        setPlayPauseImage(imageName: "rounded-pause-button", littleImageName: "music-player-pause-lines")
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         slider.setCircle()
         
         let fire = "https://firebasestorage.googleapis.com/v0/b/kinoogon-85687.appspot.com/o/podcasts%2F2019-01-04%2011.19.06.mp3?alt=media&token=4ffff425-38b0-48ef-9cce-939d45fe693e"
         //self.playerPlay(url: fire)
-        Player.instance.delegate = self
+        
+        
         
         Storage.storage().reference().child("[BadComedian] - Ёлки 666 (НОВЫЙ ГОД В АДУ).mp4").downloadURL { (url, error) in
             if let error = error {
@@ -66,30 +84,20 @@ class PodcastVC: UIViewController {
                 //self.playerPlay(url: NSURL(string: vk) as! URL)
             }
         }
-        
-        
-//        Storage.storage().reference().child("[BadComedian] - Ёлки 666 (НОВЫЙ ГОД В АДУ).mp4").getData(maxSize: 1000000000) { (data, error) in
-//            print("222222222222222 \(data)")
-//            if let error = error {
-//                debugPrint("\(error.localizedDescription)")
-//            }
-//            if let data = data {
-//                let bcf = ByteCountFormatter()
-//                bcf.allowedUnits = [.useMB] // optional: restricts the units to MB only
-//                bcf.countStyle = .file
-//                let string = bcf.string(fromByteCount: Int64(data.count))
-//                print("formatted result: \(string)")
-//            }
-//        }
-        
-        
+    }
+    
+    private func setLayer() {
+        let closeIcon = UIImage(named: "cancel-music")?.withRenderingMode(.alwaysTemplate)
+        closeButtonRolled.setImage(closeIcon, for: .normal)
+        closeButtonRolled.imageView?.contentMode = .scaleAspectFit
+        closeButtonRolled.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        podcastNameLabel.text = self.podcastName
     }
     
     @objc func playerDidFinishPlaying() {
-        print("Video Finished")
         Player.instance.seek(time: CMTime(seconds: 0, preferredTimescale: 1))
         Player.instance.pause()
-        setPlayPauseImage(imageName: "play-button-3")
+        setPlayPauseImage(imageName: "play-button-3", littleImageName: "music-player-play")
     }
     
     @objc func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
@@ -99,14 +107,16 @@ class PodcastVC: UIViewController {
         let positionOfSlider: CGPoint = slider.frame.origin
         let widthOfSlider: CGFloat = slider.frame.size.width
         let newValue = (pointTapped.x - positionOfSlider.x) * CGFloat(slider.maximumValue) / widthOfSlider
-        let double = audioDuration.seconds * Double(newValue)
+        guard let seconds = audioDuration?.seconds else { return }
+        let double = seconds * Double(newValue)
         Player.instance.seek(time: CMTime(seconds: double, preferredTimescale: 1))
     }
     
     @IBAction func inside(_ sender: Any) {
         print("inside")
         Player.instance.pause()
-        let double = audioDuration.seconds * Double(slider.value)
+        guard let seconds = audioDuration?.seconds else { return }
+        let double = seconds * Double(slider.value)
         Player.instance.seek(time: CMTime(seconds: double, preferredTimescale: 1))
         tapGestureRecognizer.isEnabled = true
     }
@@ -124,15 +134,23 @@ class PodcastVC: UIViewController {
         }
     }
     
-    private func setPlayPauseImage(imageName: String) {
+    @IBAction func closeButtonWasPressed(_ sender: Any) {
+        delegate?.closePodcast()
+    }
+    
+    private func setPlayPauseImage(imageName: String, littleImageName: String) {
         let icon = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         playButton.setImage(icon, for: .normal)
         playButton.imageView?.contentMode = .scaleAspectFit
         playButton.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        let littleIcon = UIImage(named: littleImageName)?.withRenderingMode(.alwaysTemplate)
+        playButtonRolled.setImage(littleIcon, for: .normal)
+        playButtonRolled.imageView?.contentMode = .scaleAspectFit
+        playButtonRolled.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
     private func setNavigationBackButton() {
-        title = "Music Music Music Music Music Music Music Music Music Music Music Music"
+        title = self.podcastName
         UINavigationBar.appearance().tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         let textAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
@@ -143,8 +161,7 @@ class PodcastVC: UIViewController {
     }
     
     @objc func backButtonTapped() {
-        //self.dismiss(animated: true, completion: nil)
-        delegate?.closePodcast()
+        delegate?.rollPodcast()
     }
     
     private func playerPlay(url: String) {
@@ -152,10 +169,10 @@ class PodcastVC: UIViewController {
         DispatchQueue.global().async {
             self.asset = AVURLAsset(url: URL(string: url)!, options: nil)
             self.audioDuration = self.asset.duration
-            self.audioDurationSeconds = CMTimeGetSeconds(self.audioDuration)
+            self.audioDurationSeconds = CMTimeGetSeconds(self.asset.duration)
             Player.instance.add(observer: { time in
                 if !self.slider.isTouchInside {
-                    self.slider.value = Float(time.seconds / self.audioDuration.seconds)
+                    self.slider.value = Float(time.seconds / self.asset.duration.seconds)
                     self.currentTimeLabel.setTime(time: time.seconds)
                 }
             })
@@ -177,11 +194,11 @@ class PodcastVC: UIViewController {
 
 extension PodcastVC: PlayerDelegate {
     func pause() {
-        setPlayPauseImage(imageName: "play-button-3")
+        setPlayPauseImage(imageName: "play-button-3", littleImageName: "music-player-play")
     }
     
     func play() {
-        setPlayPauseImage(imageName: "rounded-pause-button")
+        setPlayPauseImage(imageName: "rounded-pause-button", littleImageName: "music-player-pause-lines")
     }
     
     
