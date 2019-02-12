@@ -18,9 +18,36 @@ class Player: NSObject {
     
     public var url: String = "" {
         willSet {
-            player = AVPlayer(url: URL(string: newValue)!)
-            setPlayer()
-            player.play()
+            guard let url = URL(string: newValue) else { return }
+//            DispatchQueue.global().async {
+//                self.player = AVPlayer(url: url)
+//                self.setPlayer()
+//                self.player.play()
+//                print("Player url")
+//            }
+            print("Player newValue")
+            self.time = nil
+            let asset = AVAsset(url: url)
+            self.setPlayer()
+            asset.loadValuesAsynchronously(forKeys: ["duration", "playable"]) {
+                print("Player loadValuesAsynchronously")
+                let newItem = AVPlayerItem(asset: asset)
+                self.player.replaceCurrentItem(with: newItem)
+                //self.player.playImmediately(atRate: <#T##Float#>)
+                if let time = self.time {
+                    self.player.seek(to: time)
+                }
+                
+                DispatchQueue.main.async {
+                    self.play()
+                }
+                print("Player url")
+            }
+//            AVAsset *asset = [AVAsset assetWithURL:self.mediaURL];
+//            [asset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
+//                AVPlayerItem *newItem = [[AVPlayerItem alloc] initWithAsset:asset];
+//                [self.avPlayer replaceCurrentItemWithPlayerItem:newItem];
+//                }];
         }
     }
     
@@ -31,6 +58,7 @@ class Player: NSObject {
     private var player = AVPlayer()
     private var observerContext = 0
     public var delegate: PlayerDelegate?
+    private var time: CMTime?
     
     static public let instance = Player()
     
@@ -68,11 +96,23 @@ class Player: NSObject {
     }
     
     public func seek(time: CMTime) {
-        player.seek(to: time)
+        //player.seek(to: time)
+        print("Player seek")
+        self.time = time
+        player.seek(to: time) { (_) in
+            self.play()
+            
+        }
         play()
     }
     
+    public func seetToZero() {
+        player.seek(to: CMTime(seconds: 0, preferredTimescale: 1))
+        //play()
+    }
+    
     public func add(observer: @escaping (CMTime) -> Void) {
+        print("Player add")
         let interval = CMTimeMake(value: 1, timescale: 4)
         player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: observer)
     }
@@ -91,7 +131,7 @@ class Player: NSObject {
         
         if keyPath == "reasonForWaitingToPlay" {
             //NSLog("\(keyPath): \(change![.newKey])")
-            print("player.status \(player.status == AVPlayer.Status.readyToPlay)")
+            //print("player.status \(player.status == AVPlayer.Status.readyToPlay)")
             if player.status == AVPlayer.Status.readyToPlay {
                 if player.rate == 0 {
                     //self.play()

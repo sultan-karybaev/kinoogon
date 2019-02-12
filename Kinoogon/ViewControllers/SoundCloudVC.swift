@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import AVFoundation
 
 class SoundCloudVC: UIViewController {
     
@@ -122,7 +123,7 @@ class SoundCloudVC: UIViewController {
                 self.podcastVC.mainImageCenterXConstraint.constant = 0
                 self.podcastVC.mainImageHeightConstraint.constant = self.startImageHeight
                 self.podcastVC.imageSize.constant = self.mainNC.view.frame.width
-                self.podcastVC.sliderLeadingConstraint.constant = self.view.frame.width + 20
+                self.podcastVC.sliderViewLeadingConstraint.constant = self.view.frame.width + 20
                 self.podcastVC.closeButtonViewTrailingConstraint.constant = 80 + 20 - self.view.frame.width
                 self.mainNC.view.layoutIfNeeded()
             }, completion: { (_) in
@@ -133,7 +134,6 @@ class SoundCloudVC: UIViewController {
     }
     
     private func verticalProgressingMain(translation: CGPoint, progress: CGFloat) {
-        print("verticalProgressingMain \(progress)")
         if progress > 0 && progress < 1 {
             YConstraint.constant += translation.y
             heightConstraint.constant = 80 + (mainNC.view.frame.height - mainNC.navigationBar.frame.origin.y - 80) * (1 - progress)
@@ -142,16 +142,13 @@ class SoundCloudVC: UIViewController {
             YConstraint.constant = mainNC.navigationBar.frame.origin.y
             heightConstraint.constant = mainNC.view.frame.height - mainNC.navigationBar.frame.origin.y
             tabbar.tabBar.frame.origin.y = YConstraint.constant + heightConstraint.constant
-            //progress = 0
             return
         } else if progress == 1 {
             YConstraint.constant = tabbarOriginY - 80
             heightConstraint.constant = 80
             tabbar.tabBar.frame.origin.y = tabbarOriginY
-            //progress = 1
             return
         }
-        
         let secondFullProgress: CGFloat = 1 - (200 - 80) / (mainNC.view.frame.height - mainNC.navigationBar.frame.origin.y - 80)
         let f = (1 - progress) / (1 - secondFullProgress)
         if progress >= 0 && progress <= 0.5 {
@@ -162,117 +159,90 @@ class SoundCloudVC: UIViewController {
             podcastVC.mainImageHeightConstraint.constant = startImageHeight
         } else if progress > 0.5 {
             podcastNC.navigationBar.alpha = 0
-            podcastVC.imageSize.constant = self.view.frame.width
+            //podcastVC.imageSize.constant = self.view.frame.width
             podcastVC.mainImageTopConstraint.constant = 0
-            podcastVC.mainImageCenterXConstraint.constant = 0
-            podcastVC.mainImageHeightConstraint.constant = startImageHeight
+            //podcastVC.mainImageCenterXConstraint.constant = 0
+            //podcastVC.mainImageHeightConstraint.constant = startImageHeight
             if isRolledLayerSet { self.setRolledLayer(false) }
             if heightConstraint.constant <= 200 {
                 if !isRolledLayerSet { self.setRolledLayer(true) }
                 podcastVC.mainImageCenterXConstraint.constant = (40 - self.mainNC.view.frame.width / 2) * (1 - (1 - progress) / (1 - secondFullProgress))
                 podcastVC.mainImageHeightConstraint.constant = 80 + (startImageHeight - 80) * f
                 podcastVC.imageSize.constant = 80 + (self.view.frame.width - 80) * f
-                self.podcastVC.sliderLeadingConstraint.constant = 80 + 20 + (self.view.frame.width - 80) * f
+                self.podcastVC.sliderViewLeadingConstraint.constant = 80 + 20 + (self.view.frame.width - 80) * f
                 self.podcastVC.closeButtonViewTrailingConstraint.constant = 0 + (80 + 20 - self.view.frame.width) * f
+            } else {
+                podcastVC.imageSize.constant = self.view.frame.width
+                podcastVC.mainImageCenterXConstraint.constant = 0
+                podcastVC.mainImageHeightConstraint.constant = startImageHeight
             }
         }
     }
     
-    private func horizontalProgress() {
-        
+    private func horizontalProgress(translation: CGPoint, progress: CGFloat) {
+        if progress > 0 && progress < 1 {
+            XConstraint.constant += translation.x
+        } else if progress == 0 {
+            XConstraint.constant = 0
+            return
+        } else if progress == 1 {
+            XConstraint.constant = mainNC.view.frame.width
+            return
+        }
     }
     
     @objc func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
         self.animationIsReversed = false
         let translation = gestureRecognizer.translation(in: view)
-        //print("translation \(translation)")
         var progress: CGFloat = 0
-        verticalProgress = translation.x <= translation.y
-        //print(abs(-34))
-        if verticalProgress || progressVerticalHasBegun {
+        if abs(translation.x) == 0 && abs(translation.y) == 0 && !(progressVerticalHasBegun || progressHorizontalHasBegun || isRolledUp) { return }
+        verticalProgress = abs(translation.x) < abs(translation.y)
+//        print("translation.y \(translation.y)")
+//        print("translation.x \(translation.x)")
+//        print("verticalProgress \(verticalProgress)")
+        if (verticalProgress || progressVerticalHasBegun || isRolledUp) && !progressHorizontalHasBegun {
+            progressVerticalHasBegun = true
             progress = (YConstraint.constant + translation.y - self.mainNC.navigationBar.frame.origin.y) / (tabbarOriginY - 80 - self.mainNC.navigationBar.frame.origin.y)
             if progress < 0 {
                 progress = 0
-                verticalProgressingMain(translation: translation, progress: progress)
-                //return
+                progressVerticalHasBegun = false
             } else if progress > 1 {
                 progress = 1
-                verticalProgressingMain(translation: translation, progress: progress)
-                //return
             }
-            verticalProgressingMain(translation: translation, progress: progress)
-            progressVerticalHasBegun = true
-        } else {
-            
+        } else if !verticalProgress || progressHorizontalHasBegun {
+            progressHorizontalHasBegun = true
+            progress = (XConstraint.constant + translation.x) / mainNC.view.frame.width
+            if progress < 0 {
+                progress = 0
+                progressHorizontalHasBegun = false
+            } else if progress > 1 {
+                progress = 1
+            }
         }
-//        progress = (YConstraint.constant + translation.y - self.mainNC.navigationBar.frame.origin.y) / (tabbarOriginY - 80 - self.mainNC.navigationBar.frame.origin.y)
-//        if progress >= 0 && progress <= 1 {
-//            YConstraint.constant += translation.y
-//            heightConstraint.constant = 80 + (mainNC.view.frame.height - mainNC.navigationBar.frame.origin.y - 80) * (1 - progress)
-//            tabbar.tabBar.frame.origin.y = YConstraint.constant + heightConstraint.constant
-//        } else if progress < 0 {
-//            YConstraint.constant = mainNC.navigationBar.frame.origin.y
-//            heightConstraint.constant = mainNC.view.frame.height - mainNC.navigationBar.frame.origin.y
-//            tabbar.tabBar.frame.origin.y = YConstraint.constant + heightConstraint.constant
-//            progress = 0
-//            return
-//        } else if progress > 1 {
-//            YConstraint.constant = tabbarOriginY - 80
-//            heightConstraint.constant = 80
-//            tabbar.tabBar.frame.origin.y = tabbarOriginY
-//            progress = 1
-//            return
-//        }
-        let secondFullProgress: CGFloat = 1 - (200 - 80) / (mainNC.view.frame.height - mainNC.navigationBar.frame.origin.y - 80)
-        let f = (1 - progress) / (1 - secondFullProgress)
-        gestureRecognizer.setTranslation(CGPoint.zero, in: podcastNC.view)
         switch gestureRecognizer.state {
             case .began, .changed:
-                if verticalProgress || progressVerticalHasBegun {
-                    //todo
+                if (verticalProgress || progressVerticalHasBegun || isRolledUp) && !progressHorizontalHasBegun {
                     verticalProgressingMain(translation: translation, progress: progress)
-//                    progress = (YConstraint.constant + translation.y - self.mainNC.navigationBar.frame.origin.y) / (tabbarOriginY - 80 - self.mainNC.navigationBar.frame.origin.y)
-//                    if progress < 0 {
-//                        progress = 0
-//                        //verticalProgressingMain(translation: translation, progress: progress)
-//                    } else if progress > 1 {
-//                        progress = 1
-//                    }
-//                    verticalProgressingMain(translation: translation, progress: progress)
-//                    progressVerticalHasBegun = true
-                } else {
-
+                } else if !verticalProgress || progressHorizontalHasBegun {
+                    horizontalProgress(translation: translation, progress: progress)
                 }
-            
-//                if progress >= 0 && progress <= 0.5 {
-//                    podcastNC.navigationBar.alpha = (1 - progress * 2)
-//                    podcastVC.imageSize.constant = startImageWidth + ((self.view.frame.width - startImageWidth) * progress * 2)
-//                    podcastVC.mainImageTopConstraint.constant = startImageTop * (1 - progress * 2)
-//                    podcastVC.mainImageCenterXConstraint.constant = 0
-//                    podcastVC.mainImageHeightConstraint.constant = startImageHeight
-//                } else if progress > 0.5 {
-//                    podcastNC.navigationBar.alpha = 0
-//                    podcastVC.imageSize.constant = self.view.frame.width
-//                    podcastVC.mainImageTopConstraint.constant = 0
-//                    podcastVC.mainImageCenterXConstraint.constant = 0
-//                    podcastVC.mainImageHeightConstraint.constant = startImageHeight
-//                    if isRolledLayerSet { self.setRolledLayer(false) }
-//                    if heightConstraint.constant <= 200 {
-//                        if !isRolledLayerSet { self.setRolledLayer(true) }
-//                        podcastVC.mainImageCenterXConstraint.constant = (40 - self.mainNC.view.frame.width / 2) * (1 - (1 - progress) / (1 - secondFullProgress))
-//                        podcastVC.mainImageHeightConstraint.constant = 80 + (startImageHeight - 80) * f
-//                        podcastVC.imageSize.constant = 80 + (self.view.frame.width - 80) * f
-//                        self.podcastVC.sliderLeadingConstraint.constant = 80 + 20 + (self.view.frame.width - 80) * f
-//                        self.podcastVC.closeButtonViewTrailingConstraint.constant = 0 + (80 + 20 - self.view.frame.width) * f
-//                    }
-//                }
+                gestureRecognizer.setTranslation(CGPoint.zero, in: podcastNC.view)
             case .cancelled, .ended:
-                if 1 - progress >= 0.5 {
-                    self.closeAnimation(duration: defaultAnimationDuration * progress, duration2: defaultAnimationDuration * progress, close: false)
-                } else {
-                    setAnimationDuration = defaultAnimationDuration * ( 1 - progress)
-                    self.closeAnimation(duration: defaultAnimationDuration * ( 1 - progress), duration2: 0, close: true)
+                if (verticalProgress || progressVerticalHasBegun || isRolledUp) && !progressHorizontalHasBegun {
+                    if 1 - progress >= 0.5 {
+                        self.closeAnimation(duration: defaultAnimationDuration * progress, duration2: defaultAnimationDuration * progress, close: false)
+                    } else {
+                        setAnimationDuration = defaultAnimationDuration * ( 1 - progress)
+                        self.closeAnimation(duration: defaultAnimationDuration * ( 1 - progress), duration2: 0, close: true)
+                    }
+                } else if !verticalProgress || progressHorizontalHasBegun {
+                    if 1 - progress >= 0.5 {
+                        self.closeAnimationHorizontal(duration: 0.3 * progress, close: false)
+                    } else {
+                        self.closeAnimationHorizontal(duration: 0.3 * ( 1 - progress), close: true)
+                    }
                 }
+                
                 break
             default:
                 break
@@ -280,13 +250,13 @@ class SoundCloudVC: UIViewController {
     }
     
     private func setRolledLayer(_ isRolled: Bool) {
-        self.podcastVC.sliderLeadingConstraint.constant = isRolled ? self.view.frame.width + 20 : 30
-        self.podcastVC.sliderTrailingConstraint.constant = isRolled ? 20 : 30
+        self.podcastVC.sliderViewLeadingConstraint.constant = isRolled ? self.view.frame.width + 20 : 30
+        self.podcastVC.sliderViewTrailingConstraint.constant = isRolled ? 20 : 30
         self.podcastVC.closeButtonViewTrailingConstraint.constant = isRolled ? 80 + 20 - self.view.frame.width : 0
         self.podcastVC.closeButtonViewWidthContraint.constant = isRolled ? 60 : 0
         self.podcastVC.playButtonViewWidthConstraint.constant = isRolled ? 20 : 0
         self.podcastVC.podcastNameLabelCenterYConstraint.constant = -CGFloat(round(80 / 4))
-        self.podcastVC.sliderCenterYConstraint.constant = isRolled ? CGFloat(round(80 / 4)) : 0
+        self.podcastVC.sliderViewCenterYConstraint.constant = isRolled ? CGFloat(round(80 / 4)) : 0
         self.mainNC.view.layoutIfNeeded()
         self.podcastVC.timeStackView.alpha = isRolled ? 0 : 1
         self.podcastVC.podcastNameLabel.alpha = isRolled ? 1 : 0
@@ -306,6 +276,7 @@ class SoundCloudVC: UIViewController {
             self.animationIsReversed = false
             self.isRolledUp = close
             self.animationWasStarted = false
+            self.progressVerticalHasBegun = false
         })
         if duration2 != 0 {
             UIView.animate(withDuration: TimeInterval(exactly: Double(duration2))!, delay: TimeInterval(exactly: Double(delay))!, options: .curveEaseInOut, animations: {
@@ -318,6 +289,15 @@ class SoundCloudVC: UIViewController {
             })
         }
         self.startTime = CACurrentMediaTime()
+    }
+    
+    private func closeAnimationHorizontal(duration: CGFloat, close: Bool) {
+        UIView.animate(withDuration: TimeInterval(exactly: Double(duration))!, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.XConstraint.constant = close ? self.mainNC.view.frame.width : 0
+            self.mainNC.view.layoutIfNeeded()
+        }, completion: { (_) in
+            self.progressHorizontalHasBegun = false
+        })
     }
     
     private func calculateTime(currentValue: CGFloat, startValue: CGFloat, change : CGFloat, duration: CGFloat) -> CGFloat {
@@ -338,7 +318,7 @@ class SoundCloudVC: UIViewController {
                     self.podcastVC.mainImageCenterXConstraint.constant = 40 - self.mainNC.view.frame.width / 2
                     self.podcastVC.mainImageHeightConstraint.constant = 80
                     self.podcastVC.imageSize.constant = !self.animationIsReversed ? 80 : self.view.frame.width
-                    self.podcastVC.sliderLeadingConstraint.constant = 80 + 20
+                    self.podcastVC.sliderViewLeadingConstraint.constant = 80 + 20
                     self.podcastVC.closeButtonViewTrailingConstraint.constant = 0
                     self.mainNC.view.layoutIfNeeded()
                 }, completion: { (_) in
@@ -373,7 +353,15 @@ extension SoundCloudVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.podcastView.removeFromSuperview()
+        DispatchQueue.global().async {
+            Player.instance.stop()
+        }
+        //self.podcastVC.closeTest()
+        print("111")
         self.addPodcastView()
+        print("222")
+        self.podcastVC.audioSource = "https://firebasestorage.googleapis.com/v0/b/kinoogon-85687.appspot.com/o/podcasts%2F2019-01-04%2011.19.06.mp3?alt=media&token=4ffff425-38b0-48ef-9cce-939d45fe693e"
+        print("333")
         self.mainNC.view.layoutIfNeeded()
         self.setRolledLayer(false)
         self.setStartValues()
@@ -381,7 +369,9 @@ extension SoundCloudVC: UITableViewDelegate, UITableViewDataSource {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
             self.XConstraint.constant = 0
             self.mainNC.view.layoutIfNeeded()
-        }, completion: nil)
+        }, completion: { _ in
+            
+        })
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

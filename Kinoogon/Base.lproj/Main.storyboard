@@ -224,17 +224,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KFd-ZB-ZRv">
-                                <rect key="frame" x="28" y="318.5" width="319" height="31"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="thumbTintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="inside:" destination="SUD-8X-ahI" eventType="touchUpInside" id="HpS-mw-xaM"/>
-                                    <action selector="outside:" destination="SUD-8X-ahI" eventType="valueChanged" id="QFk-w4-bzX"/>
-                                    <action selector="outside:" destination="SUD-8X-ahI" eventType="touchUpOutside" id="bFH-lo-LXU"/>
-                                </connections>
-                            </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zL-kQ-NUb">
+                                <rect key="frame" x="30" y="318.5" width="315" height="30"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KFd-ZB-ZRv">
+                                        <rect key="frame" x="-2" y="0.0" width="319" height="31"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="thumbTintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="didEndOnExit:" destination="SUD-8X-ahI" eventType="editingDidEndOnExit" id="Bd8-VY-k6E"/>
+                                            <action selector="dradInside:" destination="SUD-8X-ahI" eventType="touchDragInside" id="vPZ-4A-Gxa"/>
+                                            <action selector="dragEnter:" destination="SUD-8X-ahI" eventType="touchDragEnter" id="ViT-sc-ba1"/>
+                                            <action selector="dragExit:" destination="SUD-8X-ahI" eventType="touchDragExit" id="SbW-NB-iis"/>
+                                            <action selector="dragOutside:" destination="SUD-8X-ahI" eventType="touchDragOutside" id="8r9-GQ-5TQ"/>
+                                            <action selector="editingChanged:" destination="SUD-8X-ahI" eventType="editingChanged" id="JnR-BE-ja6"/>
+                                            <action selector="editingDidBegin:" destination="SUD-8X-ahI" eventType="editingDidBegin" id="0aU-Gi-k1w"/>
+                                            <action selector="editingDidEnd:" destination="SUD-8X-ahI" eventType="editingDidEnd" id="ev7-3A-Rqu"/>
+                                            <action selector="inside:" destination="SUD-8X-ahI" eventType="touchUpInside" id="HpS-mw-xaM"/>
+                                            <action selector="outside:" destination="SUD-8X-ahI" eventType="touchUpOutside" id="bFH-lo-LXU"/>
+                                            <action selector="primaryActionTriggerred:" destination="SUD-8X-ahI" eventType="primaryActionTriggered" id="3M3-aP-FeW"/>
+                                            <action selector="touchCancel:" destination="SUD-8X-ahI" eventType="touchCancel" id="nQ1-nk-iTX"/>
+                                            <action selector="touchDown:" destination="SUD-8X-ahI" eventType="touchDown" id="TqG-MM-AHz"/>
+                                            <action selector="touchDownRepeat:" destination="SUD-8X-ahI" eventType="touchDownRepeat" id="0eE-L2-CSO"/>
+                                            <action selector="valueChanged:" destination="SUD-8X-ahI" eventType="valueChanged" id="IZc-q9-vm3"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IMA-L1-sNU"/>
+                                    <constraint firstAttribute="trailing" secondItem="KFd-ZB-ZRv" secondAttribute="trailing" id="Pki-bW-ZG4"/>
+                                    <constraint firstAttribute="bottom" secondItem="KFd-ZB-ZRv" secondAttribute="bottom" id="ROh-nY-bfS"/>
+                                    <constraint firstItem="KFd-ZB-ZRv" firstAttribute="top" secondItem="8zL-kQ-NUb" secondAttribute="top" id="XKC-ys-pDW"/>
+                                    <constraint firstItem="KFd-ZB-ZRv" firstAttribute="leading" secondItem="8zL-kQ-NUb" secondAttribute="leading" id="hLX-3v-mPc"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wf7-Cz-jN4">
                                 <rect key="frame" x="137.5" y="428.5" width="100" height="100"/>
                                 <constraints>
@@ -334,19 +359,19 @@
                         <color key="backgroundColor" red="0.16730210300055401" green="0.26897337579704134" blue="0.38768475664377422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="VLe-ny-dFN" firstAttribute="leading" secondItem="KFd-ZB-ZRv" secondAttribute="trailing" constant="30" id="177-u8-ckM"/>
-                            <constraint firstItem="Jb1-Td-RWO" firstAttribute="top" secondItem="KFd-ZB-ZRv" secondAttribute="bottom" constant="20" id="6g2-rG-f2r"/>
+                            <constraint firstItem="QVt-UR-g5X" firstAttribute="trailing" secondItem="8zL-kQ-NUb" secondAttribute="trailing" id="1Vj-6b-UJo"/>
+                            <constraint firstItem="8zL-kQ-NUb" firstAttribute="centerY" secondItem="FrP-Ts-AqM" secondAttribute="centerY" id="4gi-Fw-9YO"/>
                             <constraint firstItem="Jb1-Td-RWO" firstAttribute="centerX" secondItem="FrP-Ts-AqM" secondAttribute="centerX" id="CyL-kX-2tf"/>
                             <constraint firstItem="DtX-mO-b1U" firstAttribute="leading" secondItem="VLe-ny-dFN" secondAttribute="trailing" id="DPJ-Mx-vcc"/>
                             <constraint firstItem="DtX-mO-b1U" firstAttribute="centerY" secondItem="FrP-Ts-AqM" secondAttribute="centerY" id="GV0-fV-qs0"/>
+                            <constraint firstItem="wf7-Cz-jN4" firstAttribute="top" secondItem="Jb1-Td-RWO" secondAttribute="bottom" constant="35" id="Hou-gY-Qr3"/>
                             <constraint firstItem="VLe-ny-dFN" firstAttribute="centerY" secondItem="FrP-Ts-AqM" secondAttribute="centerY" id="IZj-n5-PWv"/>
-                            <constraint firstItem="QVt-UR-g5X" firstAttribute="leading" secondItem="KFd-ZB-ZRv" secondAttribute="leading" id="Oj0-io-DdC"/>
-                            <constraint firstItem="KFd-ZB-ZRv" firstAttribute="centerY" secondItem="FrP-Ts-AqM" secondAttribute="centerY" id="S1Z-1J-gS4"/>
+                            <constraint firstItem="QVt-UR-g5X" firstAttribute="leading" secondItem="8zL-kQ-NUb" secondAttribute="leading" id="Pgz-9i-1Gl"/>
                             <constraint firstItem="gf3-rC-ObB" firstAttribute="top" secondItem="n3d-TN-yjk" secondAttribute="top" constant="80" id="Z15-OW-06M"/>
-                            <constraint firstItem="QVt-UR-g5X" firstAttribute="trailing" secondItem="KFd-ZB-ZRv" secondAttribute="trailing" id="Z6b-tS-Po9"/>
                             <constraint firstItem="wf7-Cz-jN4" firstAttribute="centerX" secondItem="FrP-Ts-AqM" secondAttribute="centerX" id="Zqo-CJ-4Vi"/>
-                            <constraint firstItem="wf7-Cz-jN4" firstAttribute="top" secondItem="KFd-ZB-ZRv" secondAttribute="bottom" constant="80" id="i96-Fi-PZb"/>
-                            <constraint firstItem="KFd-ZB-ZRv" firstAttribute="leading" secondItem="n3d-TN-yjk" secondAttribute="leading" constant="30" id="ii1-gf-DEL"/>
+                            <constraint firstItem="Jb1-Td-RWO" firstAttribute="top" secondItem="8zL-kQ-NUb" secondAttribute="bottom" constant="20" id="ja1-O6-PuI"/>
+                            <constraint firstItem="8zL-kQ-NUb" firstAttribute="leading" secondItem="FrP-Ts-AqM" secondAttribute="leading" constant="30" id="ldg-1D-h5T"/>
+                            <constraint firstItem="VLe-ny-dFN" firstAttribute="leading" secondItem="8zL-kQ-NUb" secondAttribute="trailing" constant="30" id="lxl-fD-8bW"/>
                             <constraint firstItem="gf3-rC-ObB" firstAttribute="centerX" secondItem="FrP-Ts-AqM" secondAttribute="centerX" id="qh6-wa-udf"/>
                             <constraint firstAttribute="trailing" secondItem="DtX-mO-b1U" secondAttribute="trailing" id="tLx-Wu-KDi"/>
                             <constraint firstItem="QVt-UR-g5X" firstAttribute="centerY" secondItem="FrP-Ts-AqM" secondAttribute="centerY" id="xaD-qZ-4Pj"/>
@@ -371,15 +396,16 @@
                         <outlet property="podcastNameLabel" destination="QVt-UR-g5X" id="5ha-7h-uhD"/>
                         <outlet property="podcastNameLabelCenterYConstraint" destination="xaD-qZ-4Pj" id="dFh-VA-NLw"/>
                         <outlet property="slider" destination="KFd-ZB-ZRv" id="zem-JO-bBB"/>
-                        <outlet property="sliderCenterYConstraint" destination="S1Z-1J-gS4" id="bfx-P4-uLU"/>
-                        <outlet property="sliderLeadingConstraint" destination="ii1-gf-DEL" id="1cl-VS-Vxz"/>
-                        <outlet property="sliderTrailingConstraint" destination="177-u8-ckM" id="aYI-aV-sPh"/>
+                        <outlet property="sliderView" destination="8zL-kQ-NUb" id="thQ-lb-4MJ"/>
+                        <outlet property="sliderViewCenterYConstraint" destination="4gi-Fw-9YO" id="ehb-69-xn0"/>
+                        <outlet property="sliderViewLeadingConstraint" destination="ldg-1D-h5T" id="ugT-J9-1Ym"/>
+                        <outlet property="sliderViewTrailingConstraint" destination="lxl-fD-8bW" id="Scq-bj-KtX"/>
                         <outlet property="timeStackView" destination="Jb1-Td-RWO" id="YgP-Mi-3Nr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r3K-yF-HXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966" y="-631"/>
+            <point key="canvasLocation" x="965.60000000000002" y="-631.0344827586207"/>
         </scene>
         <!--PodcastNC-->
         <scene sceneID="2nB-P6-SZH">
