@@ -18,6 +18,12 @@
 		D104BAEC21AB0167001C2EAC /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D104BAE921AAFFB0001C2EAC /* video.mp4 */; };
 		D105646321EB9AE5004A5D24 /* Interactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105646221EB9AE5004A5D24 /* Interactive.swift */; };
 		D105C51121DF21E300EB1C14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D105C51021DF21E300EB1C14 /* GoogleService-Info.plist */; };
+		D10C5FEB22154B7200AC3387 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C5FEA22154B7200AC3387 /* DataService.swift */; };
+		D10C5FED22154BEB00AC3387 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C5FEC22154BEB00AC3387 /* DataStorage.swift */; };
+		D10C5FEF2215570500AC3387 /* StandartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C5FEE2215570500AC3387 /* StandartCell.swift */; };
+		D10C5FF122155AA300AC3387 /* StandartTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C5FF022155AA300AC3387 /* StandartTVC.swift */; };
+		D10C5FF3221566A200AC3387 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C5FF2221566A200AC3387 /* DownloadService.swift */; };
+		D10C5FF52215683C00AC3387 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10C5FF42215683C00AC3387 /* InfoModel.swift */; };
 		D111C7C621B443960002EFFC /* TopListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D111C7C521B443960002EFFC /* TopListVC.swift */; };
 		D164FF0621E79D3F003BA1B3 /* MainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D164FF0521E79D3F003BA1B3 /* MainNC.swift */; };
 		D1FE2DF121A5CF2C007D92D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2DF021A5CF2C007D92D5 /* AppDelegate.swift */; };
@@ -28,7 +34,7 @@
 		D1FE2E0621A5CF2F007D92D5 /* KinoogonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2E0521A5CF2F007D92D5 /* KinoogonTests.swift */; };
 		D1FE2E1121A5CF2F007D92D5 /* KinoogonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FE2E1021A5CF2F007D92D5 /* KinoogonUITests.swift */; };
 		D1FEA83721AFC3EA00D7C488 /* UISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEA83621AFC3EA00D7C488 /* UISlider.swift */; };
-		D1FEA83921AFD0C500D7C488 /* CommonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEA83821AFD0C500D7C488 /* CommonTableCell.swift */; };
+		D1FEA83921AFD0C500D7C488 /* YoutubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEA83821AFD0C500D7C488 /* YoutubeCell.swift */; };
 		D1FEA83B21B040A800D7C488 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEA83A21B040A800D7C488 /* Constants.swift */; };
 		D1FEA83D21B04E3300D7C488 /* YouTubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEA83C21B04E3300D7C488 /* YouTubeVideo.swift */; };
 		D1FEDDF221A84625002731A9 /* PodcastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FEDDF121A84625002731A9 /* PodcastVC.swift */; };
@@ -73,6 +79,12 @@
 		D104BAE921AAFFB0001C2EAC /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		D105646221EB9AE5004A5D24 /* Interactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactive.swift; sourceTree = "<group>"; };
 		D105C51021DF21E300EB1C14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D10C5FEA22154B7200AC3387 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		D10C5FEC22154BEB00AC3387 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		D10C5FEE2215570500AC3387 /* StandartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartCell.swift; sourceTree = "<group>"; };
+		D10C5FF022155AA300AC3387 /* StandartTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartTVC.swift; sourceTree = "<group>"; };
+		D10C5FF2221566A200AC3387 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
+		D10C5FF42215683C00AC3387 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		D111C7C521B443960002EFFC /* TopListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListVC.swift; sourceTree = "<group>"; };
 		D164FF0521E79D3F003BA1B3 /* MainNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNC.swift; sourceTree = "<group>"; };
 		D1FE2DED21A5CF2C007D92D5 /* Kinoogon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kinoogon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +101,7 @@
 		D1FE2E1021A5CF2F007D92D5 /* KinoogonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinoogonUITests.swift; sourceTree = "<group>"; };
 		D1FE2E1221A5CF2F007D92D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1FEA83621AFC3EA00D7C488 /* UISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISlider.swift; sourceTree = "<group>"; };
-		D1FEA83821AFD0C500D7C488 /* CommonTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableCell.swift; sourceTree = "<group>"; };
+		D1FEA83821AFD0C500D7C488 /* YoutubeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeCell.swift; sourceTree = "<group>"; };
 		D1FEA83A21B040A800D7C488 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D1FEA83C21B04E3300D7C488 /* YouTubeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeVideo.swift; sourceTree = "<group>"; };
 		D1FEDDF121A84625002731A9 /* PodcastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastVC.swift; sourceTree = "<group>"; };
@@ -157,8 +169,19 @@
 			isa = PBXGroup;
 			children = (
 				D1FEA83C21B04E3300D7C488 /* YouTubeVideo.swift */,
+				D10C5FF42215683C00AC3387 /* InfoModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D10C5FE922154B5500AC3387 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D10C5FEA22154B7200AC3387 /* DataService.swift */,
+				D10C5FEC22154BEB00AC3387 /* DataStorage.swift */,
+				D10C5FF2221566A200AC3387 /* DownloadService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D1FE2DE421A5CF2C007D92D5 = {
@@ -186,6 +209,7 @@
 		D1FE2DEF21A5CF2C007D92D5 /* Kinoogon */ = {
 			isa = PBXGroup;
 			children = (
+				D10C5FE922154B5500AC3387 /* Services */,
 				D102F9AE21EA4E2E00994A78 /* Model */,
 				D100E55E21AEA1E000864F18 /* Extensions */,
 				D1FFB72521A930400031E892 /* Utils */,
@@ -228,7 +252,8 @@
 				D101F6B121AD400B00AE0309 /* PlayerView.xib */,
 				D1FF33E521AC6F05004F2C91 /* PlayerView.swift */,
 				D101E6B221AAB885007690CA /* SoundCloudCell.swift */,
-				D1FEA83821AFD0C500D7C488 /* CommonTableCell.swift */,
+				D1FEA83821AFD0C500D7C488 /* YoutubeCell.swift */,
+				D10C5FEE2215570500AC3387 /* StandartCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,6 +267,7 @@
 				D102FF4C21ABF8CD00E453D1 /* YouTubeListVC.swift */,
 				D111C7C521B443960002EFFC /* TopListVC.swift */,
 				D164FF0521E79D3F003BA1B3 /* MainNC.swift */,
+				D10C5FF022155AA300AC3387 /* StandartTVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -419,10 +445,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Kinoogon/Pods-Kinoogon-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper-swift/youtube_ios_player_helper_swift.framework",
@@ -430,10 +464,18 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper_swift.framework",
@@ -506,7 +548,8 @@
 			files = (
 				D1FE2DF321A5CF2C007D92D5 /* ViewController.swift in Sources */,
 				D1FEA83D21B04E3300D7C488 /* YouTubeVideo.swift in Sources */,
-				D1FEA83921AFD0C500D7C488 /* CommonTableCell.swift in Sources */,
+				D1FEA83921AFD0C500D7C488 /* YoutubeCell.swift in Sources */,
+				D10C5FF52215683C00AC3387 /* InfoModel.swift in Sources */,
 				D1FEDDF221A84625002731A9 /* PodcastVC.swift in Sources */,
 				D102FF4D21ABF8CD00E453D1 /* YouTubeListVC.swift in Sources */,
 				D100E56021AEA23C00864F18 /* UILabel.swift in Sources */,
@@ -517,10 +560,15 @@
 				D1FFB72921A939E60031E892 /* PodcastNC.swift in Sources */,
 				D1FE2DF121A5CF2C007D92D5 /* AppDelegate.swift in Sources */,
 				D1FF33E621AC6F06004F2C91 /* PlayerView.swift in Sources */,
+				D10C5FED22154BEB00AC3387 /* DataStorage.swift in Sources */,
 				D1FF411721A6B5B600F3D2F2 /* SoundCloudVC.swift in Sources */,
+				D10C5FF3221566A200AC3387 /* DownloadService.swift in Sources */,
 				D105646321EB9AE5004A5D24 /* Interactive.swift in Sources */,
+				D10C5FEB22154B7200AC3387 /* DataService.swift in Sources */,
 				D101E6B321AAB885007690CA /* SoundCloudCell.swift in Sources */,
+				D10C5FF122155AA300AC3387 /* StandartTVC.swift in Sources */,
 				D111C7C621B443960002EFFC /* TopListVC.swift in Sources */,
+				D10C5FEF2215570500AC3387 /* StandartCell.swift in Sources */,
 				D102F9AD21EA3C3400994A78 /* Player.swift in Sources */,
 				D100E56221AEA77300864F18 /* UIButton.swift in Sources */,
 				D1FEA83721AFC3EA00D7C488 /* UISlider.swift in Sources */,

@@ -18,19 +18,18 @@ class MainNC: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tabbar = self.viewControllers[0] as! UITabBarController
-
+        tabbar = self.viewControllers[0] as? UITabBarController
+        
+        //test
+        DataService.instance.asd()
     }
 
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
         guard let soundcloudVC = tabbar.selectedViewController as? SoundCloudVC else { return }
         soundcloudVC.bottomSafeAreaConstraint.constant -= self.view.frame.height - tabbar.tabBar.frame.origin.y
         tabbar.tabBar.frame.origin.y = self.view.frame.height
-        
     }
 
 }

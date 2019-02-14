@@ -9,12 +9,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BoringSSL.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>CodableFirebase.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FirebaseCore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>FirebaseDatabase.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FirebaseFirestore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,12 +64,47 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Protobuf.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>YouTubePlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>gRPC-C++.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>gRPC-Core.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>gRPC-ProtoRPC.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>gRPC-RxLibrary.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>gRPC-gRPCCertificates.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>gRPC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

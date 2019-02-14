@@ -153,8 +153,8 @@ extension YouTubeListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommonTableCell") as? CommonTableCell else {
-            return CommonTableCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommonTableCell") as? YoutubeCell else {
+            return YoutubeCell()
         }
         cell.tag = indexPath.row
         cell.setTitle(title: youtubeArray[indexPath.row].title)

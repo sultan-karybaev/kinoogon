@@ -12,6 +12,7 @@ import AVFoundation
 protocol PlayerDelegate {
     func pause()
     func play()
+    func setDuration(time: CMTime)
 }
 
 class Player: NSObject {
@@ -32,6 +33,9 @@ class Player: NSObject {
             asset.loadValuesAsynchronously(forKeys: ["duration", "playable"]) {
                 print("Player loadValuesAsynchronously")
                 let newItem = AVPlayerItem(asset: asset)
+                print("asset.duration \(asset.duration)")
+                
+                //asset.duration
                 self.player.replaceCurrentItem(with: newItem)
                 //self.player.playImmediately(atRate: <#T##Float#>)
                 if let time = self.time {
@@ -39,6 +43,7 @@ class Player: NSObject {
                 }
                 
                 DispatchQueue.main.async {
+                    self.delegate?.setDuration(time: asset.duration)
                     self.play()
                 }
                 print("Player url")
@@ -86,22 +91,22 @@ class Player: NSObject {
     }
     
     public func pause() {
+        print("Player pause")
         player.pause()
         delegate?.pause()
     }
     
     public func play() {
+        print("Player play")
         player.play()
         delegate?.play()
     }
     
     public func seek(time: CMTime) {
-        //player.seek(to: time)
         print("Player seek")
         self.time = time
         player.seek(to: time) { (_) in
-            self.play()
-            
+            //self.play()
         }
         play()
     }

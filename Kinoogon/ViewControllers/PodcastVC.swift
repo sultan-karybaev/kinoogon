@@ -53,13 +53,10 @@ class PodcastVC: UIViewController {
     private var durationTest = 1882
     
     private var dragSliderAllowed: Bool = true
-    private var isSliderTapped: Bool = false
+    private var isSliderTapped: Bool = true
     public var delegate: PodcastDelegate?
     public var audioSource: String = "" {
         willSet {
-//            DispatchQueue.global().async {
-//                Player.instance.stop()
-//            }
             self.refresh()
             setPlayer(source: newValue)
         }
@@ -85,19 +82,6 @@ class PodcastVC: UIViewController {
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-        
-//        Player.instance.add(observer: { time in
-//            //print("!self.slider.isTouchInside \(time)")
-//            if self.dragSliderAllowed {
-//                self.slider.value = Float(time.seconds / self.asset.duration.seconds)
-//            }
-//            //print("time.seconds \(time.seconds)")
-//            self.currentTimeLabel.setTime(time: time.seconds)
-//        })
-        
-        
-        //test
-        self.durationTimeLabel.setTime(time: Double(self.durationTest))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -395,7 +379,6 @@ class PodcastVC: UIViewController {
             
         }
         DispatchQueue.global(qos: .background).async(execute: d)
-        print("DispatchQueue.global(qos: .background).async(execute: d)")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -415,7 +398,11 @@ extension PodcastVC: PlayerDelegate {
         setPlayPauseImage(imageName: "rounded-pause-button", littleImageName: "music-player-pause-lines")
     }
     
-    
+    func setDuration(time: CMTime) {
+        self.audioDuration = time
+        self.audioDurationSeconds = CMTimeGetSeconds(time)
+        self.durationTimeLabel.setTime(time: Double(self.audioDurationSeconds))
+    }
 }
 
 
