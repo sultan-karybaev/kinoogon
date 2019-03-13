@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainNC: UINavigationController {
 
@@ -20,8 +21,52 @@ class MainNC: UINavigationController {
         super.viewDidLoad()
         tabbar = self.viewControllers[0] as? UITabBarController
         
-        //test
-        DataService.instance.asd()
+//        Storage.storage().reference().child("2018-12-11 16.57.30.jpg").downloadURL { (url, error) in
+//            if let error = error {
+//                debugPrint("PodcastVC.swift \(error.localizedDescription)")
+//            } else {
+//
+//            }
+//        }
+        var data: StorageMetadata? = nil
+        Storage.storage().reference().child("images/z7_Hvhyqmh8.jpg").getMetadata { (StorageMetadata, Error) in
+            if let error = Error {
+                debugPrint("PodcastVC.swift \(error.localizedDescription)")
+            }
+            if let metadata = StorageMetadata {
+                print("metadata \(metadata)")
+                //metadata.bucket
+                //data = metadata
+            }
+        }
+        //guard let metadata = data else { return }
+        let f = StorageMetadata(dictionary: [ "name" : "contentDisposition" ])
+        Storage.storage().reference().child("2018-12-11 16.57.30.jpg").updateMetadata(f!) { (StorageMetadata, Error) in
+            if let error = Error {
+                debugPrint("PodcastVC.swift \(error.localizedDescription)")
+            }
+            if let metadata = StorageMetadata {
+                print("metadata \(metadata)")
+                //metadata.bucket
+                //data = metadata
+            }
+        }
+        
+        
+        Storage.storage().reference().storage.reference()
+        //var bucket = gcs.bucket('my-bucket');
+        //var file = bucket.file('my-image.png');
+        //var newLocation = 'gs://another-bucket/my-image-new.png';
+        //file.move(newLocation, function(err, destinationFile, apiResponse) {
+            // `my-bucket` no longer contains:
+            // - "my-image.png"
+            //
+            // `another-bucket` now contains:
+            // - "my-image-new.png"
+            
+            // `destinationFile` is an instance of a File object that refers to your
+            // new file.
+        //});
     }
 
     

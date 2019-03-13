@@ -143,8 +143,8 @@ class PodcastVC: UIViewController {
         print("sliderTapped ---------------------------------------------")
         self.isSliderTapped = true
         Player.instance.pause()
-        print("gestureRecognizer.location(in: nil) \(gestureRecognizer.location(in: nil))")
-        print("gestureRecognizer.location(ofTouch: 0, in: nil) \(gestureRecognizer.location(ofTouch: 0, in: nil))")
+        //print("gestureRecognizer.location(in: nil) \(gestureRecognizer.location(in: nil))")
+        //print("gestureRecognizer.location(ofTouch: 0, in: nil) \(gestureRecognizer.location(ofTouch: 0, in: nil))")
         //print("gestureRecognizer.location(ofTouch: 1, in: nil) \(gestureRecognizer.location(ofTouch: 1, in: nil))")
         let pointTapped: CGPoint = gestureRecognizer.location(ofTouch: 0, in: self.sliderView)
         let positionOfSlider: CGPoint = slider.frame.origin
@@ -158,27 +158,6 @@ class PodcastVC: UIViewController {
         Player.instance.seek(time: CMTime(seconds: double, preferredTimescale: 1))
         dragSliderAllowed = true
         print("self.slider.value \(self.slider.value)")
-        
-        
-        
-//        let d = DispatchWorkItem {
-//            Player.instance.pause()
-//            let pointTapped: CGPoint = gestureRecognizer.location(in: self.sliderView)
-//            let positionOfSlider: CGPoint = self.slider.frame.origin
-//            let widthOfSlider: CGFloat = self.slider.frame.size.width
-//            let newValue = (pointTapped.x - positionOfSlider.x) * CGFloat(self.slider.maximumValue) / widthOfSlider
-//            //guard let seconds = audioDuration?.seconds else { return }
-//            let seconds = Double(self.durationTest)
-//            let double = seconds * Double(newValue)
-//            Player.instance.seek(time: CMTime(seconds: double, preferredTimescale: 1))
-//
-//            DispatchQueue.main.async {
-//                self.slider.value = Float(double / seconds)
-//                self.currentTimeLabel.setTime(time: double)
-//                self.dragSliderAllowed = true
-//            }
-//        }
-//        DispatchQueue.global(qos: .background).async(execute: d)
     }
     
     @IBAction func inside(_ sender: Any) {
@@ -275,10 +254,10 @@ class PodcastVC: UIViewController {
     }
     
     @IBAction func closeButtonWasPressed(_ sender: Any) {
-        closeTest()
+        closePodcast()
     }
     
-    public func closeTest() {
+    public func closePodcast() {
         delegate?.closePodcast()
         DispatchQueue.global().async {
             Player.instance.stop()
@@ -339,17 +318,18 @@ class PodcastVC: UIViewController {
         let d = DispatchWorkItem {
             Player.instance.url = url
             DispatchQueue.main.async {
-                Player.instance.add(observer: { time in
-                    let seconds = time.seconds
-                    if self.dragSliderAllowed {
-                        //print("dragSliderAllowed")
-                        //self.slider.value = Float(seconds / self.asset.duration.seconds)
-                        self.slider.value = Float(seconds / Double(self.durationTest))
-                        
-                    }
-                    //print("time.seconds \(time.seconds)")
-                    self.currentTimeLabel.setTime(time: seconds)
-                })
+//                Player.instance.add(observer: { time in
+//                    print("\(t)\(t)\(t)\(t)\(t)\(t)\(t)\(t)\(t)\(t)\(t)\(t)\(t)\(t)\(t)\(t)\(t)")
+//                    let seconds = time.seconds
+//                    if self.dragSliderAllowed {
+//                        //print("dragSliderAllowed")
+//                        //self.slider.value = Float(seconds / self.asset.duration.seconds)
+//                        self.slider.value = Float(seconds / Double(self.durationTest))
+//
+//                    }
+//                    //print("time.seconds \(time.seconds)")
+//                    self.currentTimeLabel.setTime(time: seconds)
+//                })
             }
             print("DispatchWorkItem")
             DispatchQueue.main.async {
@@ -390,6 +370,10 @@ class PodcastVC: UIViewController {
 }
 
 extension PodcastVC: PlayerDelegate {
+    func setPlayerLayer(playerLayer: AVPlayerLayer) {
+        
+    }
+    
     func pause() {
         setPlayPauseImage(imageName: "play-button-3", littleImageName: "music-player-play")
     }
@@ -402,6 +386,20 @@ extension PodcastVC: PlayerDelegate {
         self.audioDuration = time
         self.audioDurationSeconds = CMTimeGetSeconds(time)
         self.durationTimeLabel.setTime(time: Double(self.audioDurationSeconds))
+    }
+    
+    func setTime(time: CMTime) {
+        print("time \(time)")
+        
+        let seconds = time.seconds
+        if self.dragSliderAllowed {
+            //print("dragSliderAllowed")
+            //self.slider.value = Float(seconds / self.asset.duration.seconds)
+            self.slider.value = Float(seconds / Double(self.durationTest))
+
+        }
+        //print("time.seconds \(time.seconds)")
+        self.currentTimeLabel.setTime(time: seconds)
     }
 }
 

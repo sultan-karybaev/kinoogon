@@ -22,7 +22,7 @@ class SoundCloudVC: UIViewController {
     private var YConstraint: NSLayoutConstraint!
     private var heightConstraint: NSLayoutConstraint!
     
-    private var podcastView: UIView! = UIView()
+    private var podcastView: UIView = UIView()
     private var startTime: TimeInterval!
     private var animationWasStarted: Bool = false
     private var animationIsReversed: Bool = false
@@ -42,31 +42,42 @@ class SoundCloudVC: UIViewController {
     
     private var leftBarButtonItem : UIBarButtonItem!
     private var navigationLeftButton : UIButton!
+    
+    private var mainHeight: CGFloat = 0
+    private var mainOriginY: CGFloat = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.navigationItem.title = "Подкасты"
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.bounces = false
         tableView.backgroundView = nil
         tableView.backgroundColor = #colorLiteral(red: 0.0862745098, green: 0.1294117647, blue: 0.1803921569, alpha: 1)
         tableView.layer.backgroundColor = #colorLiteral(red: 0.0862745098, green: 0.1294117647, blue: 0.1803921569, alpha: 1)
-        setNavigation()
+        
         guard let mainNC = self.navigationController as? MainNC else { return }
         self.mainNC = mainNC
+        mainHeight = mainNC.view.frame.height
+        mainOriginY = mainNC.navigationBar.frame.origin.y
         tabbar = self.tabBarController!
         tabbarOriginY = self.tabbar.tabBar.frame.origin.y
         guard let podcastNC = storyboard?.instantiateViewController(withIdentifier: "PodcastNC") as? PodcastNC else { return }
         self.podcastNC = podcastNC
         podcastVC = podcastNC.viewControllers[0] as! PodcastVC
         podcastVC.delegate = self
+        print("podcastNC \(self.podcastNC)")
         //podcastView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 //        podcastView.clipsToBounds = true
 //        podcastView.addSubview(podcastNC.view)
 //        mainNC.view.addSubview(podcastView)
         
         //addPodcastView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigation()
     }
     
     private func setStartValues() {
@@ -83,7 +94,7 @@ class SoundCloudVC: UIViewController {
     }
     
     private func setNavigation() {
-        title = "Подкасты"
+        tabBarController?.navigationItem.title = "Подкасты"
         let textAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
         self.navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
@@ -99,7 +110,6 @@ class SoundCloudVC: UIViewController {
         podcastNC.view.leadingAnchor.constraint(equalTo: podcastView.leadingAnchor, constant: 0).isActive = true
         podcastNC.view.trailingAnchor.constraint(equalTo: podcastView.trailingAnchor, constant: 0).isActive = true
         podcastNC.view.bottomAnchor.constraint(equalTo: podcastView.bottomAnchor, constant: 0).isActive = true
-        
         mainNC.view.addSubview(podcastView)
         podcastView.translatesAutoresizingMaskIntoConstraints = false
         YConstraint = podcastView.topAnchor.constraint(equalTo: mainNC.view.topAnchor, constant: mainNC.navigationBar.frame.origin.y)
@@ -152,11 +162,13 @@ class SoundCloudVC: UIViewController {
         let secondFullProgress: CGFloat = 1 - (200 - 80) / (mainNC.view.frame.height - mainNC.navigationBar.frame.origin.y - 80)
         let f = (1 - progress) / (1 - secondFullProgress)
         if progress >= 0 && progress <= 0.5 {
-            podcastNC.navigationBar.alpha = (1 - progress * 2)
+            //podcastNC.navigationBar.alpha = (1 - progress * 2)
             podcastVC.imageSize.constant = startImageWidth + ((self.view.frame.width - startImageWidth) * progress * 2)
             podcastVC.mainImageTopConstraint.constant = startImageTop * (1 - progress * 2)
             podcastVC.mainImageCenterXConstraint.constant = 0
             podcastVC.mainImageHeightConstraint.constant = startImageHeight
+            self.mainNC.view.layoutIfNeeded()
+            podcastNC.navigationBar.alpha = (1 - progress * 2)
         } else if progress > 0.5 {
             podcastNC.navigationBar.alpha = 0
             //podcastVC.imageSize.constant = self.view.frame.width
@@ -177,9 +189,12 @@ class SoundCloudVC: UIViewController {
                 podcastVC.mainImageHeightConstraint.constant = startImageHeight
             }
         }
+        
     }
     
     private func horizontalProgress(translation: CGPoint, progress: CGFloat) {
+        podcastNC.navigationBar.alpha = 1 - progress
+        //print("podcastNC.navigationBar.alpha \(podcastNC.navigationBar.alpha)")
         if progress > 0 && progress < 1 {
             XConstraint.constant += translation.x
         } else if progress == 0 {
@@ -296,6 +311,10 @@ class SoundCloudVC: UIViewController {
             self.XConstraint.constant = close ? self.mainNC.view.frame.width : 0
             self.mainNC.view.layoutIfNeeded()
         }, completion: { (_) in
+            if close {
+                Player.instance.url = ""
+                self.podcastView.removeFromSuperview()
+            }
             self.progressHorizontalHasBegun = false
         })
     }
@@ -353,15 +372,16 @@ extension SoundCloudVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.podcastView.removeFromSuperview()
-        DispatchQueue.global().async {
-            Player.instance.stop()
-        }
+        Player.instance.pause()
+//        DispatchQueue.global().async {
+//            Player.instance.pause()
+//        }
         //self.podcastVC.closeTest()
-        print("111")
+        //print("111")
         self.addPodcastView()
-        print("222")
+        //print("222")
         self.podcastVC.audioSource = "https://firebasestorage.googleapis.com/v0/b/kinoogon-85687.appspot.com/o/podcasts%2F2019-01-04%2011.19.06.mp3?alt=media&token=4ffff425-38b0-48ef-9cce-939d45fe693e"
-        print("333")
+        //print("333")
         self.mainNC.view.layoutIfNeeded()
         self.setRolledLayer(false)
         self.setStartValues()
@@ -386,6 +406,7 @@ extension SoundCloudVC: PodcastDelegate {
     }
     
     func closePodcast() {
+        Player.instance.url = ""
         self.podcastView.removeFromSuperview()
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 class DataStorage {
-    public var podcastArray: [String] = [String]()
+    public var HOSTS_IMAGES_DICTIONARY: [String: [String: Data]] = [:]
     
     public static let instance = DataStorage()
 }

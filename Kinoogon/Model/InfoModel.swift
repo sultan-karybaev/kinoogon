@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct InfoModel {
+struct InfoModel: Codable {
     public private(set) var image: String
     public private(set) var title: String?
     public private(set) var description: String?

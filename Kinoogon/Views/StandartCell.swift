@@ -20,7 +20,9 @@ class StandartCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        //descriptionLabel.text = "label"
         mainImage.layer.cornerRadius = 10
+        //imageHeight.constant = mainImage.frame.width
         imageHeight.constant = (contentView.frame.width - 20) / 16 * 9
     }
 
