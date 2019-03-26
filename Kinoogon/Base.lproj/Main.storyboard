@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.078431372549019607" green="0.12549019607843137" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommonTableCell" rowHeight="300" id="PaF-gA-QhU" customClass="YoutubeCell" customModule="Kinoogon" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommonTableCell" rowHeight="300" id="PaF-gA-QhU" customClass="YoutubeCell" customModule="Kinoogon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PaF-gA-QhU" id="njj-Lb-7y9">
@@ -43,31 +43,43 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5T-w8-Inz">
-                                                    <rect key="frame" x="10" y="148" width="355" height="142"/>
+                                                    <rect key="frame" x="10" y="149" width="355" height="141"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view hidden="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWy-m8-Net">
+                                                    <rect key="frame" x="10" y="10" width="355" height="129"/>
+                                                    <color key="backgroundColor" red="0.38823529410000002" green="0.74509803919999995" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="129" id="JHA-qq-1GB"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="2e5-82-vV7" secondAttribute="trailing" id="0dT-I7-2Cu"/>
-                                                <constraint firstItem="W5T-w8-Inz" firstAttribute="top" secondItem="GTs-5h-Cbq" secondAttribute="bottom" constant="10" id="0eN-gl-7GH"/>
                                                 <constraint firstItem="W5T-w8-Inz" firstAttribute="leading" secondItem="njj-Lb-7y9" secondAttribute="leading" constant="10" id="3LQ-CI-Cpa"/>
+                                                <constraint firstItem="W5T-w8-Inz" firstAttribute="top" secondItem="IWy-m8-Net" secondAttribute="bottom" constant="10" id="4Rp-qo-151"/>
                                                 <constraint firstItem="2e5-82-vV7" firstAttribute="leading" secondItem="njj-Lb-7y9" secondAttribute="leading" id="Bi1-zI-dJS"/>
+                                                <constraint firstItem="IWy-m8-Net" firstAttribute="leading" secondItem="njj-Lb-7y9" secondAttribute="leading" constant="10" id="F0c-V1-INM"/>
                                                 <constraint firstItem="2e5-82-vV7" firstAttribute="top" secondItem="njj-Lb-7y9" secondAttribute="top" id="Swy-Ry-gtc"/>
                                                 <constraint firstItem="GTs-5h-Cbq" firstAttribute="top" secondItem="njj-Lb-7y9" secondAttribute="top" constant="10" id="TQ5-pg-0IU"/>
                                                 <constraint firstAttribute="trailing" secondItem="W5T-w8-Inz" secondAttribute="trailing" constant="10" id="aec-lS-ykk"/>
                                                 <constraint firstAttribute="trailing" secondItem="GTs-5h-Cbq" secondAttribute="trailing" constant="10" id="bbf-JS-gIo"/>
+                                                <constraint firstItem="IWy-m8-Net" firstAttribute="top" secondItem="2e5-82-vV7" secondAttribute="bottom" constant="9" id="mDh-tb-eGV"/>
                                                 <constraint firstAttribute="bottom" secondItem="W5T-w8-Inz" secondAttribute="bottom" constant="10" id="qCu-CS-bsO"/>
+                                                <constraint firstAttribute="trailing" secondItem="IWy-m8-Net" secondAttribute="trailing" constant="10" id="qQh-Al-EJ0"/>
                                                 <constraint firstItem="GTs-5h-Cbq" firstAttribute="leading" secondItem="njj-Lb-7y9" secondAttribute="leading" constant="10" id="w9d-rJ-buQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.086274509799999996" green="0.12941176469999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="boxView" destination="IWy-m8-Net" id="Gzr-It-BOU"/>
                                             <outlet property="imageHeight" destination="bEC-5I-JxL" id="mmj-TS-d6a"/>
                                             <outlet property="mainImage" destination="GTs-5h-Cbq" id="Bm1-N9-u8Z"/>
                                             <outlet property="separatorView" destination="2e5-82-vV7" id="dWA-Dq-wUE"/>
                                             <outlet property="titleLabel" destination="W5T-w8-Inz" id="nR8-NN-PjL"/>
+                                            <outlet property="viewHeightConstraint" destination="JHA-qq-1GB" id="Lkn-Wd-mgi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -90,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cbx-kp-ad5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-567" y="65"/>
+            <point key="canvasLocation" x="-567.20000000000005" y="64.31784107946028"/>
         </scene>
         <!--VideoVC-->
         <scene sceneID="tf0-Sf-3ai">
@@ -109,21 +121,12 @@
                                         <color key="tintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="thumbTintColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="didEndOnExit:" destination="SUD-8X-ahI" eventType="editingDidEndOnExit" id="HmP-c1-q5E"/>
-                                            <action selector="dradInside:" destination="SUD-8X-ahI" eventType="touchDragInside" id="7l5-SH-sJ9"/>
-                                            <action selector="dragEnter:" destination="SUD-8X-ahI" eventType="touchDragEnter" id="RXM-cw-0Y0"/>
-                                            <action selector="dragExit:" destination="SUD-8X-ahI" eventType="touchDragExit" id="A5d-zL-8Ps"/>
-                                            <action selector="dragOutside:" destination="SUD-8X-ahI" eventType="touchDragOutside" id="29x-tw-cr5"/>
-                                            <action selector="editingChanged:" destination="SUD-8X-ahI" eventType="editingChanged" id="cmc-Qc-4DZ"/>
-                                            <action selector="editingDidBegin:" destination="SUD-8X-ahI" eventType="editingDidBegin" id="WTd-gl-Keu"/>
-                                            <action selector="editingDidEnd:" destination="SUD-8X-ahI" eventType="editingDidEnd" id="n98-Ku-u5g"/>
-                                            <action selector="inside:" destination="SUD-8X-ahI" eventType="touchUpInside" id="tNM-6R-VAR"/>
-                                            <action selector="outside:" destination="SUD-8X-ahI" eventType="touchUpOutside" id="H6w-DJ-dKM"/>
-                                            <action selector="primaryActionTriggerred:" destination="SUD-8X-ahI" eventType="primaryActionTriggered" id="wWs-Pi-Jto"/>
-                                            <action selector="touchCancel:" destination="SUD-8X-ahI" eventType="touchCancel" id="sVH-T9-y3y"/>
-                                            <action selector="touchDown:" destination="SUD-8X-ahI" eventType="touchDown" id="G5D-4O-qFR"/>
-                                            <action selector="touchDownRepeat:" destination="SUD-8X-ahI" eventType="touchDownRepeat" id="er0-EK-YHH"/>
-                                            <action selector="valueChanged:" destination="SUD-8X-ahI" eventType="valueChanged" id="86y-sH-hld"/>
+                                            <action selector="dradInside:" destination="Nuo-C8-goD" eventType="touchDragInside" id="TqN-dO-VhX"/>
+                                            <action selector="inside:" destination="Nuo-C8-goD" eventType="touchUpInside" id="RvN-ye-4Xn"/>
+                                            <action selector="outside:" destination="Nuo-C8-goD" eventType="touchUpOutside" id="GfJ-SG-6Bm"/>
+                                            <action selector="touchCancel:" destination="Nuo-C8-goD" eventType="touchCancel" id="TM4-77-E6d"/>
+                                            <action selector="touchDown:" destination="Nuo-C8-goD" eventType="touchDown" id="Lyh-T9-1Mg"/>
+                                            <action selector="valueChanged:" destination="Nuo-C8-goD" eventType="valueChanged" id="yrW-3X-jEr"/>
                                         </connections>
                                     </slider>
                                 </subviews>
@@ -721,12 +724,6 @@
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kH3-uK-hpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="Akt-wQ-z8a">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <viewLayoutGuide key="safeArea" id="ibC-03-UvT"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="-1714" y="-309"/>
         </scene>
@@ -755,13 +752,40 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a1X-N0-Mjo">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.094117647060000004" green="0.14901960780000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6pf-pt-U0W">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="gBG-Wp-5jw" customClass="Cell" customModule="Kinoogon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.90980392160000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a1X-N0-Mjo" secondAttribute="trailing" id="6k8-ty-UUn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a1X-N0-Mjo" secondAttribute="bottom" id="TLX-OG-gE4"/>
+                            <constraint firstItem="a1X-N0-Mjo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="deM-2q-xvQ"/>
+                            <constraint firstItem="a1X-N0-Mjo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eGl-u8-OLO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Топы" image="line-chart" id="6zG-p9-eok"/>
                     <navigationItem key="navigationItem" id="NcH-hQ-4Pv"/>
                     <connections>
+                        <outlet property="collectionView" destination="a1X-N0-Mjo" id="dCn-an-jQM"/>
                         <outlet property="mainImage" destination="fCT-Yj-IhT" id="6tT-2Y-14O"/>
                         <outlet property="playerView" destination="yU3-d4-Up5" id="lNZ-3o-V6y"/>
                     </connections>

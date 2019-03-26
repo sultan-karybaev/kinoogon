@@ -22,6 +22,8 @@
 		D10A7266221E6A4A003FCA35 /* HostsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10A7265221E6A4A003FCA35 /* HostsVC.swift */; };
 		D10A7268221E7DD9003FCA35 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10A7267221E7DD9003FCA35 /* ProfileVC.swift */; };
 		D10A726A221E80F1003FCA35 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10A7269221E80F1003FCA35 /* Cell.swift */; };
+		D10A8C612248FD9500889EEC /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10A8C602248FD9500889EEC /* PinterestLayout.swift */; };
+		D10A8C63224901AC00889EEC /* Pinte.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10A8C62224901AC00889EEC /* Pinte.swift */; };
 		D10B3883222FA63B008106B1 /* GreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B3882222FA63B008106B1 /* GreenVC.swift */; };
 		D10B3885222FA64C008106B1 /* BlueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B3884222FA64C008106B1 /* BlueVC.swift */; };
 		D10B3887222FA927008106B1 /* RedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10B3886222FA927008106B1 /* RedVC.swift */; };
@@ -93,6 +95,8 @@
 		D10A7265221E6A4A003FCA35 /* HostsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostsVC.swift; sourceTree = "<group>"; };
 		D10A7267221E7DD9003FCA35 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		D10A7269221E80F1003FCA35 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		D10A8C602248FD9500889EEC /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		D10A8C62224901AC00889EEC /* Pinte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pinte.swift; sourceTree = "<group>"; };
 		D10B3882222FA63B008106B1 /* GreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenVC.swift; sourceTree = "<group>"; };
 		D10B3884222FA64C008106B1 /* BlueVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueVC.swift; sourceTree = "<group>"; };
 		D10B3886222FA927008106B1 /* RedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedVC.swift; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 				D102F9AC21EA3C3400994A78 /* Player.swift */,
 				D105646221EB9AE5004A5D24 /* Interactive.swift */,
 				D10351392221180B00E6EE89 /* SlideAnimatedTransitioning.swift */,
+				D10A8C602248FD9500889EEC /* PinterestLayout.swift */,
+				D10A8C62224901AC00889EEC /* Pinte.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -590,6 +596,7 @@
 				D10A726A221E80F1003FCA35 /* Cell.swift in Sources */,
 				D10B3885222FA64C008106B1 /* BlueVC.swift in Sources */,
 				D103513A2221180B00E6EE89 /* SlideAnimatedTransitioning.swift in Sources */,
+				D10A8C612248FD9500889EEC /* PinterestLayout.swift in Sources */,
 				D100E56021AEA23C00864F18 /* UILabel.swift in Sources */,
 				D1FEA83B21B040A800D7C488 /* Constants.swift in Sources */,
 				D1FFB72B21A95E030031E892 /* TransitionInteractor.swift in Sources */,
@@ -609,6 +616,7 @@
 				D10B3887222FA927008106B1 /* RedVC.swift in Sources */,
 				D101E6B321AAB885007690CA /* SoundCloudCell.swift in Sources */,
 				D10C5FF122155AA300AC3387 /* StandartTVC.swift in Sources */,
+				D10A8C63224901AC00889EEC /* Pinte.swift in Sources */,
 				D111C7C621B443960002EFFC /* TopListVC.swift in Sources */,
 				D10C5FEF2215570500AC3387 /* StandartCell.swift in Sources */,
 				D102F9AD21EA3C3400994A78 /* Player.swift in Sources */,

@@ -10,6 +10,7 @@ import Foundation
 
 class DataStorage {
     public var HOSTS_IMAGES_DICTIONARY: [String: [String: Data]] = [:]
+    //public var HOSTS_IMAGES_DICTIONARY: [String: [String: Data]] = [:]
     
     public static let instance = DataStorage()
 }

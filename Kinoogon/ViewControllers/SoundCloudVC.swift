@@ -22,7 +22,7 @@ class SoundCloudVC: UIViewController {
     private var YConstraint: NSLayoutConstraint!
     private var heightConstraint: NSLayoutConstraint!
     
-    private var podcastView: UIView = UIView()
+    //private var podcastView: UIView = UIView()
     private var startTime: TimeInterval!
     private var animationWasStarted: Bool = false
     private var animationIsReversed: Bool = false
@@ -95,30 +95,30 @@ class SoundCloudVC: UIViewController {
     
     private func setNavigation() {
         tabBarController?.navigationItem.title = "Подкасты"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
-        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+//        let textAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+//        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     private func addPodcastView() {
-        podcastView = UIView(frame: CGRect(x: mainNC.view.frame.width, y: mainNC.navigationBar.frame.origin.y, width: mainNC.view.frame.width, height: mainNC.view.frame.height - mainNC.navigationBar.frame.origin.y))
-        podcastView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        podcastView.clipsToBounds = true
+        mainNC.podcastView = UIView(frame: CGRect(x: mainNC.view.frame.width, y: mainNC.navigationBar.frame.origin.y, width: mainNC.view.frame.width, height: mainNC.view.frame.height - mainNC.navigationBar.frame.origin.y))
+        mainNC.podcastView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        mainNC.podcastView.clipsToBounds = true
         mainNC.addChild(podcastNC)
-        podcastView.addSubview(podcastNC.view)
+        mainNC.podcastView.addSubview(podcastNC.view)
         podcastNC.view.translatesAutoresizingMaskIntoConstraints = false
-        podcastNC.view.topAnchor.constraint(equalTo: podcastView.topAnchor, constant: 0).isActive = true
-        podcastNC.view.leadingAnchor.constraint(equalTo: podcastView.leadingAnchor, constant: 0).isActive = true
-        podcastNC.view.trailingAnchor.constraint(equalTo: podcastView.trailingAnchor, constant: 0).isActive = true
-        podcastNC.view.bottomAnchor.constraint(equalTo: podcastView.bottomAnchor, constant: 0).isActive = true
-        mainNC.view.addSubview(podcastView)
-        podcastView.translatesAutoresizingMaskIntoConstraints = false
-        YConstraint = podcastView.topAnchor.constraint(equalTo: mainNC.view.topAnchor, constant: mainNC.navigationBar.frame.origin.y)
+        podcastNC.view.topAnchor.constraint(equalTo: mainNC.podcastView.topAnchor, constant: 0).isActive = true
+        podcastNC.view.leadingAnchor.constraint(equalTo: mainNC.podcastView.leadingAnchor, constant: 0).isActive = true
+        podcastNC.view.trailingAnchor.constraint(equalTo: mainNC.podcastView.trailingAnchor, constant: 0).isActive = true
+        podcastNC.view.bottomAnchor.constraint(equalTo: mainNC.podcastView.bottomAnchor, constant: 0).isActive = true
+        mainNC.view.addSubview(mainNC.podcastView)
+        mainNC.podcastView.translatesAutoresizingMaskIntoConstraints = false
+        YConstraint = mainNC.podcastView.topAnchor.constraint(equalTo: mainNC.view.topAnchor, constant: mainNC.navigationBar.frame.origin.y)
         YConstraint.isActive = true
-        XConstraint = podcastView.centerXAnchor.constraint(equalTo: mainNC.view.centerXAnchor, constant: mainNC.view.frame.width)
+        XConstraint = mainNC.podcastView.centerXAnchor.constraint(equalTo: mainNC.view.centerXAnchor, constant: mainNC.view.frame.width)
         XConstraint.isActive = true
-        heightConstraint = podcastView.heightAnchor.constraint(equalToConstant: mainNC.view.frame.height - mainNC.navigationBar.frame.origin.y)
+        heightConstraint = mainNC.podcastView.heightAnchor.constraint(equalToConstant: mainNC.view.frame.height - mainNC.navigationBar.frame.origin.y)
         heightConstraint.isActive = true
-        podcastView.widthAnchor.constraint(equalToConstant: mainNC.view.frame.width).isActive = true
+        mainNC.podcastView.widthAnchor.constraint(equalToConstant: mainNC.view.frame.width).isActive = true
         let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         podcastNC.view.addGestureRecognizer(pan)
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
@@ -313,7 +313,7 @@ class SoundCloudVC: UIViewController {
         }, completion: { (_) in
             if close {
                 Player.instance.url = ""
-                self.podcastView.removeFromSuperview()
+                self.mainNC.podcastView.removeFromSuperview()
             }
             self.progressHorizontalHasBegun = false
         })
@@ -325,8 +325,8 @@ class SoundCloudVC: UIViewController {
     }
     
     @objc func animationDidUpdate(displayLink: CADisplayLink) {
-        guard let height = self.podcastView.layer.presentation()?.frame.height else { return }
-        guard let originY = self.podcastView.layer.presentation()?.frame.origin.y else { return }
+        guard let height = mainNC.podcastView.layer.presentation()?.frame.height else { return }
+        guard let originY = mainNC.podcastView.layer.presentation()?.frame.origin.y else { return }
         if height <= 200 && !animationWasStarted {
             self.animationWasStarted = true
             if !self.animationIsReversed {
@@ -371,7 +371,7 @@ extension SoundCloudVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.podcastView.removeFromSuperview()
+        mainNC.podcastView.removeFromSuperview()
         Player.instance.pause()
 //        DispatchQueue.global().async {
 //            Player.instance.pause()
@@ -407,6 +407,6 @@ extension SoundCloudVC: PodcastDelegate {
     
     func closePodcast() {
         Player.instance.url = ""
-        self.podcastView.removeFromSuperview()
+        mainNC.podcastView.removeFromSuperview()
     }
 }

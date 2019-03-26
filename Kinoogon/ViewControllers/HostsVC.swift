@@ -18,6 +18,8 @@ class HostsVC: UIViewController {
         super.viewDidLoad()
         addTableView()
         setData()
+        let textAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     private func setData() {
@@ -44,8 +46,10 @@ class HostsVC: UIViewController {
     
     private func setNavigationBar() {
         tabBarController?.navigationItem.title = "Ведущие"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
-        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+//        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        
     }
     
     private func addTableView() {

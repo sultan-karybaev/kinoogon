@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import WebKit
 
 class YouTubeListVC: UIViewController {
     
@@ -31,7 +32,8 @@ class YouTubeListVC: UIViewController {
             tableView.reloadData()
         }
     }
-    private var imageArray: [Int : Data] = [:]
+    private var dataDictionary: [String : Data] = [:]
+    private var currentIndexPath: IndexPath? = nil
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         return .portrait
@@ -47,7 +49,15 @@ class YouTubeListVC: UIViewController {
         tableView.dataSource = self
         tableView.bounces = false
         
-        getYouTubeVideoIDs()
+        getData()
+        let webConfiguration = WKWebViewConfiguration()
+        webConfiguration.allowsInlineMediaPlayback = true
+        if #available(iOS 10.0, *) {
+            webConfiguration.mediaTypesRequiringUserActionForPlayback = []
+        }
+        self.webView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), configuration: webConfiguration)
+        //test()
+        //getYouTubeVideoIDs()
         
         playerView = UINib(nibName: "PlayerView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? PlayerView
         //playerView.videoId = "qPiWhL9-Nvw"
@@ -71,7 +81,19 @@ class YouTubeListVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear")
         super.viewDidAppear(animated)
-        addPlayerView()
+        //addPlayerView()
+        setNavigation()
+    }
+    
+    private func setNavigation() {
+        //title = "asd"
+        self.navigationController?.navigationBar.topItem?.title = "YouTube канал"
+//        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        self.navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        //tabBarController?.navigationItem.title = "YouTube канал"
+        //let textAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+        //self.navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     private func addPlayerView(){
@@ -116,6 +138,15 @@ class YouTubeListVC: UIViewController {
         L4.isActive = false
     }
     
+    private func getData() {
+        DataService.instance.getYouTubeVideo { (success) in
+            if success {
+                self.youtubeArray = DataService.instance.YOUTUBE_ARRAY
+            }
+        }
+        
+    }
+    
     private func getYouTubeVideoIDs() {
         DispatchQueue.global().async {
             Alamofire.request("\(SMACK_SERVER)\(KINOOGON_API)").responseJSON(completionHandler: { (response) in
@@ -140,6 +171,93 @@ class YouTubeListVC: UIViewController {
         }
     }
     
+    private func addWebView(videoId: String) {
+        let webConfiguration = WKWebViewConfiguration()
+        //webConfiguration.
+        webConfiguration.allowsInlineMediaPlayback = true
+        if #available(iOS 10.0, *) {
+            webConfiguration.mediaTypesRequiringUserActionForPlayback = []
+        }
+        let web = WKWebView(frame: CGRect(x: 0, y: 100, width: self.view.frame.width, height: self.view.frame.width / 16 * 9), configuration: webConfiguration)
+        view.addSubview(web)
+        //let url = URL(string: "https://youtube.com/embed/RmHqOSrkZnk?playsinline=1&rel=0&hd=1&showinfo=0&enablejsapi=1")!
+        let url = URL(string: "https://youtube.com/embed/\(videoId)?autoplay=1&playsinline=1&modestbranding=1")!
+        web.load(URLRequest(url: url))
+        //web.loadHTMLString("<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/d-bw5eV8BdY\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>", baseURL: nil)
+    }
+    
+    func test() {
+        //guard let url = URL(string: "https://r.mradx.net/pictures/D2/DE81ED.jpg") else { return }
+        guard let url = URL(string: "https://youtube.com/embed/GZQIntBz2eI?autoplay=1&playsinline=1&modestbranding=1") else { return }
+        let f = URLRequest(url: url)
+        //url
+        let task = URLSession.shared.dataTask(with: f) { data, response, error in
+            if let httpResponse = response as? HTTPURLResponse, let contentType = httpResponse.allHeaderFields["Content-Type"] as? String {
+                // use contentType here
+                print("contentType \(contentType)")
+            }
+            guard let data = data else { return }
+            do {
+                let data2 = try Data(contentsOf: url)
+                //data.
+                let mime = self.mimeType(for: data2)
+                let mime2 = self.mimeType(for: data)
+                print("mimeType \(mime) \(data2 == data)")
+            } catch {
+                
+            }
+        }
+//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//            if let httpResponse = response as? HTTPURLResponse, let contentType = httpResponse.allHeaderFields["Content-Type"] as? String {
+//                // use contentType here
+//                print("contentType \(contentType)")
+//            }
+//        }
+        task.resume()
+        
+        
+    }
+    
+    func mimeType(for data: Data) -> String {
+        
+        var b: UInt8 = 0
+        data.copyBytes(to: &b, count: 1)
+        print("data.copyBytes \(b)")
+        switch b {
+        case 0xFF:
+            return "image/jpeg"
+        case 0x89:
+            return "image/png"
+        case 0x47:
+            return "image/gif"
+        case 0x4D, 0x49:
+            return "image/tiff"
+        case 0x25:
+            return "application/pdf"
+        case 0xD0:
+            return "application/vnd"
+        case 0x46:
+            return "text/plain"
+        default:
+            return "application/octet-stream"
+        }
+    }
+    
+    private var webView: WKWebView!
+    
+    func addWeb(boxView: UIView) {
+        
+        //self.web.removeFromSuperview()
+        //self.web.loadHTMLString("<html><head></head><body></body></html>", baseURL: nil)
+        boxView.addSubview(self.webView)
+        
+        self.webView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: boxView, attribute: .top, relatedBy: .equal, toItem: self.webView, attribute: .top, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: boxView, attribute: .leading, relatedBy: .equal, toItem: self.webView, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: boxView, attribute: .trailing, relatedBy: .equal, toItem: self.webView, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: boxView, attribute: .bottom, relatedBy: .equal, toItem: self.webView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+    }
+    
 }
 
 extension YouTubeListVC: UITableViewDelegate, UITableViewDataSource {
@@ -150,40 +268,32 @@ extension YouTubeListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return youtubeArray.count
+        //return youtubeArray.count > 0 ? 2 : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("cellForRowAt")
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommonTableCell") as? YoutubeCell else {
             return YoutubeCell()
         }
-        cell.tag = indexPath.row
-        cell.setTitle(title: youtubeArray[indexPath.row].title)
-        if imageArray[indexPath.row] == nil {
-            DispatchQueue.global().async {
-                do {
-                    let data = try Data(contentsOf: URL(string: self.youtubeArray[indexPath.row].image)!)
-                    DispatchQueue.main.async {
-                        if (cell.tag == indexPath.row) {
-                            cell.setImage(data: data)
-                            cell.setNeedsLayout()
-                        }
-                        self.imageArray[indexPath.row] = data
-                    }
-                } catch let error {
-                    debugPrint("YouTubeListVC.swift \(error)")
+        let youtubeVideo = youtubeArray[indexPath.row]
+        cell.boxView.isHidden = currentIndexPath != indexPath
+        if let data = dataDictionary[youtubeVideo.image] {
+            print("dataDictionary")
+            cell.mainImage.image = UIImage(data: data)
+        } else {
+            print("DownloadService")
+            cell.mainImage.image = nil
+            DownloadService.getImage(indexPath: indexPath, path: youtubeVideo.image) { (success, ind, data) in
+                if success {
+                    guard let cell = tableView.cellForRow(at: ind) as? YoutubeCell else { return }
+                    cell.mainImage.image = UIImage(data: data)
+                    self.dataDictionary[youtubeVideo.image] = data
                 }
             }
-        } else {
-            cell.setImage(data: imageArray[indexPath.row]!)
         }
-        
-        
-        cell.configureCell(view: self.view, id: youtubeArray[indexPath.row].id)
-        if indexPath.row == 0 {
-            cell.separatorView.isHidden = true
-        } else {
-            cell.separatorView.isHidden = false
-        }
+        cell.configureCell(id: youtubeArray[indexPath.row].id, title: youtubeVideo.title)
+        cell.separatorView.isHidden = indexPath.row == 0
         return cell
     }
     
@@ -192,12 +302,27 @@ extension YouTubeListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let current = currentIndexPath {
+            //self.webView.reload()
+            currentIndexPath = indexPath
+            tableView.reloadRows(at: [current], with: .none)
+        }
+        currentIndexPath = indexPath
+        guard let cell = tableView.cellForRow(at: indexPath) as? YoutubeCell else { return }
+        cell.boxView.isHidden = false
+        self.addWeb(boxView: cell.boxView)
+        guard let url = URL(string: "https://youtube.com/embed/\(cell.videoId)?autoplay=1&playsinline=1&modestbranding=1") else { return }
+        self.webView.load(URLRequest(url: url))
         tableView.deselectRow(at: indexPath, animated: true)
-        playerView.videoId = youtubeArray[indexPath.row].id
-        UIView.animate(withDuration: 0.5, animations: {
-            self.P3.constant = 0
-            self.view.layoutIfNeeded()
-        })
+        
+        
+        
+        //addWebView(videoId: youtubeArray[indexPath.row].id)
+//        playerView.videoId = youtubeArray[indexPath.row].id
+//        UIView.animate(withDuration: 0.5, animations: {
+//            self.P3.constant = 0
+//            self.view.layoutIfNeeded()
+//        })
     }
     
 }

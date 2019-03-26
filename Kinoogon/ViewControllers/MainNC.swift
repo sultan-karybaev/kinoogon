@@ -17,6 +17,8 @@ class MainNC: UINavigationController {
     public var startImageTop: CGFloat?
     public var startImageHeight: CGFloat?
     
+    public var podcastView: UIView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabbar = self.viewControllers[0] as? UITabBarController

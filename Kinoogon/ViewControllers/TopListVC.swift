@@ -14,6 +14,9 @@ class TopListVC: UIViewController {
 
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var playerView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    private let pinterestLayout = PinterestLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,23 +26,12 @@ class TopListVC: UIViewController {
                 self.mainImage.image = image
             }
         }
-        
+        collectionView.collectionViewLayout = pinterestLayout
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
-    private func addWebView() {
-        let webConfiguration = WKWebViewConfiguration()
-        //webConfiguration.
-        webConfiguration.allowsInlineMediaPlayback = true
-        if #available(iOS 10.0, *) {
-            webConfiguration.mediaTypesRequiringUserActionForPlayback = []
-        }
-        let web = WKWebView(frame: CGRect(x: 0, y: 100, width: self.view.frame.width, height: self.view.frame.width / 16 * 9), configuration: webConfiguration)
-        view.addSubview(web)
-        //let url = URL(string: "https://youtube.com/embed/RmHqOSrkZnk?playsinline=1&rel=0&hd=1&showinfo=0&enablejsapi=1")!
-        let url = URL(string: "https://youtube.com/embed/RmHqOSrkZnk?autoplay=1&playsinline=1&modestbranding=1")!
-        web.load(URLRequest(url: url))
-        //web.loadHTMLString("<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/d-bw5eV8BdY\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>", baseURL: nil)
-    }
+    
     
     func videoSnapshot(filePathLocal: NSString) -> UIImage? {
         
@@ -73,10 +65,34 @@ class TopListVC: UIViewController {
 //        playerView.layer.addSublayer(playerLayer)
 //        player.play()
         
+//        mainNC.podcastView.removeFromSuperview()
+//        Player.instance.pause()
+        
+        guard let tabBC = self.tabBarController else { return }
+        self.navigationController?.viewControllers = [tabBC]
+        print("buttonWasPressed TopListVC \(self.navigationController?.view.subviews) \(self.navigationController?.children)")
         guard let videoVC = storyboard?.instantiateViewController(withIdentifier: "VideoVC") as? VideoVC else { return }
         present(videoVC, animated: true, completion: nil)
     }
     
-    
+}
 
+extension TopListVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? Cell else { return UICollectionViewCell() }
+        cell.contentView.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        cell.contentView.layer.cornerRadius = 10
+        return cell
+    }
+    
+    
 }

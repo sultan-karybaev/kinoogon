@@ -82,6 +82,12 @@ class PodcastVC: UIViewController {
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PlaybackStalled), name: NSNotification.Name.AVPlayerItemPlaybackStalled, object: nil)
+    }
+    
+    @objc func PlaybackStalled() {
+        print("AVPlayerItemPlaybackStalled PodcastVC")
+        Player.instance.play()
     }
     
     override func viewWillAppear(_ animated: Bool) {

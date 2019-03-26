@@ -21,4 +21,16 @@ final class DownloadService {
             }
         }
     }
+    
+    public static func getURL(indexPath: IndexPath, videoId: String, handler: @escaping( (Bool, IndexPath, URL) -> () )) {
+        DispatchQueue.global().async {
+            if let url = URL(string: "https://youtube.com/embed/\(videoId)?autoplay=1&playsinline=1&modestbranding=1") {
+                DispatchQueue.main.async {
+                    handler(true, indexPath, url)
+                }
+            } else {
+                //handler(false, indexPath, URL())
+            }
+        }
+    }
 }

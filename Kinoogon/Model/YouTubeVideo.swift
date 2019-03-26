@@ -8,10 +8,10 @@
 
 import UIKit
 
-struct YouTubeVideo {
-    var image: String!
-    var title: String!
-    var id: String!
+struct YouTubeVideo: Codable {
+    public private(set) var image: String
+    public private(set) var title: String
+    public private(set) var id: String
     
     init(image: String, title: String, id: String) {
         self.image = image

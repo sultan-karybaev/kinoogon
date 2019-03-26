@@ -43,30 +43,38 @@ class Player: NSObject {
             
             asset.loadValuesAsynchronously(forKeys: ["duration", "playable"]) {
                 print("Player loadValuesAsynchronously")
+                
                 let newItem = AVPlayerItem(asset: asset)
                 print("asset.duration \(asset.duration)")
-                let interval = CMTimeMake(value: 1, timescale: 4)
+                let interval = CMTimeMake(value: 1, timescale: 1)
                 self.player.replaceCurrentItem(with: newItem)
                 self.playerLayer = AVPlayerLayer(player: self.player)
-                DispatchQueue.main.async {
-                    self.delegate?.setPlayerLayer(playerLayer: self.playerLayer)
-                }
+//                DispatchQueue.main.async {
+//                    self.delegate?.setPlayerLayer(playerLayer: self.playerLayer)
+//                }
                 
-                print("self.delegate \(self.delegate) \(self.playerLayer)")
                 if let time = self.time { self.player.seek(to: time) }
+                //self.player.addPeriodicTimeObserver(forInterval: CMTime(seconds: <#T##Double#>, preferredTimescale: <#T##CMTimeScale#>), queue: <#T##DispatchQueue?#>, using: <#T##(CMTime) -> Void#>)
+                //self.player.se
                 self.timeObserver = self.player.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { (time) in
-                    print("Player delegate")
+                    print("Player delegate \(self.player.rate)")
                     self.delegate?.setTime(time: time)
                 })
                 //self.player.playImmediately(atRate: <#T##Float#>)
                 //self.player.timeControlStatus
                 
                 DispatchQueue.main.async {
+                    self.delegate?.setPlayerLayer(playerLayer: self.playerLayer)
                     self.delegate?.setDuration(time: asset.duration)
                     self.play()
                 }
                 
-                print("Player url")
+                guard let track = asset.tracks(withMediaType: AVMediaType.video).first else { return }
+                let size = track.naturalSize.applying(track.preferredTransform);
+                let width = size.width;  // 640
+                let height = size.height; // 360
+                
+                print("Player url \(width) \(height)")
             }
 //            AVAsset *asset = [AVAsset assetWithURL:self.mediaURL];
 //            [asset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
@@ -142,11 +150,12 @@ class Player: NSObject {
     }
     
     public func seek(time: CMTime) {
-        print("Player seek")
+        print("Player seek \(time)")
         self.time = time
-        player.seek(to: time) { (_) in
-            //self.play()
-        }
+//        player.seek(to: time) { (_) in
+//            //self.play()
+//        }
+        player.seek(to: time, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
         play()
     }
     
@@ -173,7 +182,7 @@ class Player: NSObject {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
             return
         }
-        print("observeValue")
+        print("observeValue \(player.rate)")
         // look at `change![.newKey]` to see what the status is, e.g.
         
         if keyPath == "reasonForWaitingToPlay" {
